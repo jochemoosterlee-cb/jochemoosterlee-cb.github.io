@@ -92,12 +92,6 @@ video {
   float: right;
 }
 
-button.delete {
-  background: #f00;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.8rem;
-}
-
 .clip p {
   cursor: pointer;
 }
