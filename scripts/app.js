@@ -14,7 +14,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
   let onSuccess = function(stream) {
     const options = {
-      mimeType: 'video/webm; codecs="vp9,opus"'
+      mimeType: 'video/webm; codecs="h264,opus"'
     }
     const mediaRecorder = new MediaRecorder(stream, options);
     videoElement.srcObject = stream;
@@ -68,7 +68,7 @@ if (navigator.mediaDevices.getUserMedia) {
       videoClips.appendChild(clipContainer);
 
       video.controls = true;
-      const blob = new Blob(chunks, { 'type' : 'video/webm; codecs=vp9,opus' });
+      const blob = new Blob(chunks, { 'type' : 'video/webm; codecs=h264,opus' });
       chunks = [];
       const videoURL = window.URL.createObjectURL(blob);
       video.src = videoURL;
