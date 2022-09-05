@@ -51,7 +51,6 @@ if (navigator.mediaDevices.getUserMedia) {
       clipLabel.textContent = Date.now();
 
       clipContainer.appendChild(video);
-      clipContainer.appendChild(deleteButton);
       clipContainer.appendChild(clipLabel);
       videoClips.appendChild(clipContainer);
 
