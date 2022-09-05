@@ -40,18 +40,13 @@ if (navigator.mediaDevices.getUserMedia) {
 
     mediaRecorder.onstop = function(e) {
 
-      //const clipName = prompt('Enter a name for your video clip.','My unnamed clip');
-
       const clipContainer = document.createElement('article');
       const clipLabel = document.createElement('p');
       const video = document.createElement('video');
-      const deleteButton = document.createElement('button');
 
       clipContainer.classList.add('clip');
       video.setAttribute('controls', '');
       video.setAttribute('style', 'width : 25%;');
-      deleteButton.textContent = 'Delete';
-      deleteButton.className = 'delete';
 
       clipLabel.textContent = Date.now();
 
@@ -65,12 +60,7 @@ if (navigator.mediaDevices.getUserMedia) {
       chunks = [];
       const videoURL = window.URL.createObjectURL(blob);
       video.src = videoURL;
-      console.log(mediaRecorder.state);
 
-      deleteButton.onclick = function(e) {
-        let evtTgt = e.target;
-        evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
-      }
     }
 
     mediaRecorder.ondataavailable = function(e) {
