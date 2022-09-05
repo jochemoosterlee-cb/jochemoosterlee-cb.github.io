@@ -68,7 +68,7 @@ if (navigator.mediaDevices.getUserMedia) {
       videoClips.appendChild(clipContainer);
 
       video.controls = true;
-      const blob = new Blob(chunks, { 'type' : 'video/webm; codecs=vp8,opus' });
+      const blob = new Blob(chunks, { 'type' : 'video/webm; codecs=vp9,opus' });
       chunks = [];
       const videoURL = window.URL.createObjectURL(blob);
       video.src = videoURL;
