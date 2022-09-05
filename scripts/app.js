@@ -48,7 +48,7 @@ if (navigator.mediaDevices.getUserMedia) {
       video.setAttribute('controls', '');
       video.setAttribute('style', 'width : 25%;');
 
-      clipLabel.textContent = Date.now();
+      clipLabel.textContent = Now.ToString(“yyyyMMddHHMMss”);
 
       clipContainer.appendChild(video);
       clipContainer.appendChild(clipLabel);
