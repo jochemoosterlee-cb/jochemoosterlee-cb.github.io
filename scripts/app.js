@@ -92,6 +92,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
     mediaRecorder.ondataavailable = function(e) {
       chunks.push(e.data);
+      console.log(chunks);
     }
   }
 
