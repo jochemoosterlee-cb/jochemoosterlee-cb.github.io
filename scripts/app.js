@@ -7,7 +7,6 @@ const videoElement = document.querySelector("#videoElement");
 stop.disabled = true;
 
 if (navigator.mediaDevices.getUserMedia) {
-  console.log('getUserMedia supported.');
 
   const constraints = { audio: true, video: true };
   let chunks = [];
@@ -24,7 +23,6 @@ if (navigator.mediaDevices.getUserMedia) {
     record.onclick = function() {
       mediaRecorder.start();
       console.log(mediaRecorder.state);
-      console.log("recorder started");
       record.style.background = "red";
 
       stop.disabled = false;
@@ -34,7 +32,6 @@ if (navigator.mediaDevices.getUserMedia) {
     stop.onclick = function() {
       mediaRecorder.stop();
       console.log(mediaRecorder.state);
-      console.log("recorder stopped");
       record.style.background = "";
       record.style.color = "";
       stop.disabled = true;
@@ -42,9 +39,8 @@ if (navigator.mediaDevices.getUserMedia) {
     }
 
     mediaRecorder.onstop = function(e) {
-      console.log("data available after MediaRecorder.stop() called.");
 
-      const clipName = prompt('Enter a name for your video clip?','My unnamed clip');
+      //const clipName = prompt('Enter a name for your video clip.','My unnamed clip');
 
       const clipContainer = document.createElement('article');
       const clipLabel = document.createElement('p');
@@ -57,11 +53,7 @@ if (navigator.mediaDevices.getUserMedia) {
       deleteButton.textContent = 'Delete';
       deleteButton.className = 'delete';
 
-      if(clipName === null) {
-        clipLabel.textContent = 'My unnamed clip';
-      } else {
-        clipLabel.textContent = clipName;
-      }
+      clipLabel.textContent = Date.now();
 
       clipContainer.appendChild(video);
       clipContainer.appendChild(deleteButton);
@@ -73,21 +65,11 @@ if (navigator.mediaDevices.getUserMedia) {
       chunks = [];
       const videoURL = window.URL.createObjectURL(blob);
       video.src = videoURL;
-      console.log("recorder stopped");
+      console.log(mediaRecorder.state);
 
       deleteButton.onclick = function(e) {
         let evtTgt = e.target;
         evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
-      }
-
-      clipLabel.onclick = function() {
-        const existingName = clipLabel.textContent;
-        const newClipName = prompt('Enter a new name for your video clip?');
-        if(newClipName === null) {
-          clipLabel.textContent = existingName;
-        } else {
-          clipLabel.textContent = newClipName;
-        }
       }
     }
 
@@ -98,7 +80,7 @@ if (navigator.mediaDevices.getUserMedia) {
   }
 
   let onError = function(err) {
-    console.log('The following error occured: ' + err);
+    console.log(err);
   }
 
   navigator.mediaDevices.getUserMedia(constraints).then(onSuccess, onError);
