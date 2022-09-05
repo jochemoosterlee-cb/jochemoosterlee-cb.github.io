@@ -14,7 +14,7 @@ if (navigator.mediaDevices.getUserMedia) {
 
   let onSuccess = function(stream) {
     const options = {
-      mimeType: 'video/webm; codecs="vp8,opus"'
+      mimeType: 'video/webm; codecs="vp9,opus"'
     }
     const mediaRecorder = new MediaRecorder(stream, options);
     videoElement.srcObject = stream;
