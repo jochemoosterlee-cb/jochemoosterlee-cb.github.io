@@ -43,12 +43,14 @@ if (navigator.mediaDevices.getUserMedia) {
       const clipContainer = document.createElement('article');
       const clipLabel = document.createElement('p');
       const video = document.createElement('video');
-
+      const timeElapsed = Date.now();
+      const today = new Date(timeElapsed);
+      
       clipContainer.classList.add('clip');
       video.setAttribute('controls', '');
-      video.setAttribute('style', 'width : 25%;');
+      video.setAttribute('style', 'width : 25%;');      
 
-      clipLabel.textContent = DateTime.Now().ToString(“yyyyMMddhhmmss”);
+      clipLabel.textContent = today.toISOString();
 
       clipContainer.appendChild(video);
       clipContainer.appendChild(clipLabel);
