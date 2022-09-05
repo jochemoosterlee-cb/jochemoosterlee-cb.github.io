@@ -17,7 +17,7 @@ if (navigator.mediaDevices.getUserMedia) {
       mimeType: 'video/webm; codecs="vp8"'
     }
     const mediaRecorder = new MediaRecorder(stream, options);
-    console.log stream;
+    console.log(stream);
     videoElement.srcObject = stream;
     
 
