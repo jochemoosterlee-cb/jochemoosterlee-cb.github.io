@@ -11,16 +11,16 @@ if (navigator.mediaDevices.getUserMedia) {
   const constraints = { audio: true, video: true };
   let chunks = [];
 
-  let onSuccess = function(stream) {
+  let onSuccess = function (stream) {
     const options = {
-      mimeType: 'video/webm; codecs="vp8"'
+      mimeType: 'video/webm; codecs="vp9"'
     }
     const mediaRecorder = new MediaRecorder(stream, options);
     console.log(options);
     videoElement.srcObject = stream;
-    
 
-    record.onclick = function() {
+
+    record.onclick = function () {
       mediaRecorder.start();
       console.log(mediaRecorder.state);
       record.style.background = "red";
@@ -29,7 +29,7 @@ if (navigator.mediaDevices.getUserMedia) {
       record.disabled = true;
     }
 
-    stop.onclick = function() {
+    stop.onclick = function () {
       mediaRecorder.stop();
       console.log(mediaRecorder.state);
       record.style.background = "";
@@ -38,17 +38,17 @@ if (navigator.mediaDevices.getUserMedia) {
       record.disabled = false;
     }
 
-    mediaRecorder.onstop = function(e) {
+    mediaRecorder.onstop = function (e) {
 
       const clipContainer = document.createElement('article');
       const clipLabel = document.createElement('p');
       const video = document.createElement('video');
       const timeElapsed = Date.now();
       const today = new Date(timeElapsed);
-      
+
       clipContainer.classList.add('clip');
       video.setAttribute('controls', '');
-      video.setAttribute('style', 'width : 25%;');      
+      video.setAttribute('style', 'width : 25%;');
 
       clipLabel.textContent = today.toISOString();
 
@@ -57,26 +57,27 @@ if (navigator.mediaDevices.getUserMedia) {
       videoClips.appendChild(clipContainer);
 
       video.controls = true;
-      const blob = new Blob(chunks, { 'type' : 'video/webm; codecs=vp8' });
+      const blob = new Blob(chunks, { 'type': 'video/webm' });
       chunks = [];
       const videoURL = window.URL.createObjectURL(blob);
       video.src = videoURL;
 
     }
 
-    mediaRecorder.ondataavailable = function(e) {
+    mediaRecorder.ondataavailable = function (e) {
       chunks.push(e.data);
       console.log(chunks);
     }
   }
 
-  let onError = function(err) {
+  let onError = function (err) {
     console.log(err);
   }
 
   navigator.mediaDevices.getUserMedia(constraints).then(onSuccess, onError);
+
   
 
 } else {
-   console.log('getUserMedia not supported on your browser!');
+  console.log('getUserMedia not supported on your browser!');
 }
