@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>merged</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="../../style/github.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+</script>
+    <style>
+    * {
+        font-family: 'Nunito Sans', sans-serif;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="_html" class="markdown-body">
+      <section class="level-1">
+<h1 id="chromeos-settings-to-check">ChromeOS settings to check</h1>
+<section class="level-2">
+<h2 id="logging-in">Logging in</h2>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;I can log in as myself (jochem.oosterlee@cleverbase.com)
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;because I'm admin?</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;if not: change setting so only someone from the org unit RO's can log in and an admin</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;dark grey background behind user at login screen (changed when I removed my account???)</li>
+</ul>
+</section>
+<section class="level-2">
+<h2 id="personalisation">Personalisation</h2>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;change background to vidua</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;set starting tabs</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;set bookmarks</li>
+</ul>
+</section>
+<section class="level-2">
+<h2 id="settings">Settings</h2>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;wifi screen: unblock chrome://internet-config-dialog</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;chrome://file-manager to select certificate on USB during installation and enable file navigation when picture or video is saved</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;unblock chrome://media-app for viewing downloaded pictures</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;remove all downloads when shutting down or starting up</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;unblocked https://admin-portal.acc.cleverbase.internal &amp; https://admin-portal.prod.cleverbase.internal</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;wildcard on cleverbase.internal works?</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;google admin console &gt; devices &gt; networks (what can you set here?)</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;chrome://app-service-internals to see app info, incl. URL'S</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;chrome://chrome-urls to see system URLS's</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;unblock chrome://camera-app??</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;unblock chrome://* and block chrome://flags?? maybe others??</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled" readonly="readonly" />&nbsp;unblock chrome-untrusted://media-app ??</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;disable recycle bin if it exists</li>
+</ul>
+</section>
+<section class="level-2">
+<h2 id="registration-process">Registration process</h2>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled" readonly="readonly" />&nbsp;change 2 flags (disable WebRTC hardware encoding/decoding) to fix RO2 video
+<ul>
+<li>chrome://version shows command how chrome was started?</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;make sure a RO1 can download and view pictures from the admin portal</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled" readonly="readonly" />&nbsp;make sure a RO2 can download and view videos from the admin portal &gt;&gt; VLC app</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked="checked" disabled="disabled" readonly="readonly" />&nbsp;VLC to sync video?? YES</li>
+</ul>
+</section>
+<section class="level-2">
+<h2 id="installation-manual">Installation manual</h2>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;certificate install (forticlient setup)</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;change 2 flags (disable WebRTC hardware encoding/decoding) to fix RO2 video</li>
+</ul>
+</section>
+<section class="level-2">
+<h2 id="user-manual">User manual</h2>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;How to use VLC</li>
+</ul>
+</section>
+<section class="level-2">
+<h2 id="apps">Apps</h2>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;Added VLC to apps (install and add to taskbar)</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" readonly="readonly" />&nbsp;Location access by forticlient</li>
+</ul>
+</section>
+</section>
+    </div
+  </body>
+</html>
