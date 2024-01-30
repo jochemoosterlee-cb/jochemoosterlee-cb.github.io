@@ -1,0 +1,10 @@
+[nl]
+  languageName = "Nederlands"
+  languageCode = "nl-nl"
+  contentDir = "content/nederlands"
+  weight = 1
+[en]
+  languageName = "English"
+  languageCode = "en-uk"
+  contentDir = "content/english"
+  weight = 2

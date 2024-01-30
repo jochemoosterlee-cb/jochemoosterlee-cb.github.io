@@ -1,0 +1,160 @@
+{{ $applestorePath:= .Src | default site.Params.applestore }}
+{{ $applestoreDarkPath:= .DarkSrc | default site.Params.applestore_darkmode }}
+{{ $applestoreText:= .applestoreText | default site.Params.applestore_text }}
+{{ $applestoreWebp:= site.Params.applestore_webp | default true }}
+{{ $applestoreWidth:= site.Params.applestore_width | replaceRE "px|x" "" }}
+{{ $applestoreHeight:= site.Params.applestore_height | replaceRE "px|x" "" }}
+{{ $applestoreDefaultWidth:= "" }}
+{{ $applestoreDefaultHeight:= "" }}
+{{ $context:= . }}
+{{ $assetImage:= false }}
+{{ $staticImage:= false }}
+{{ $scratch:= newScratch }}
+
+
+<!-- check asset image -->
+{{ if and $applestorePath (fileExists (add `assets/` (string $applestorePath))) }}
+  {{ $assetImage = true }}
+{{ end }}
+<!-- /check asset image -->
+
+<!-- check static/CDN image -->
+{{ if and $applestorePath (or (hasPrefix $applestorePath "http") (fileExists (add `static/` (string $applestorePath)))) }}
+  {{ $staticImage = true }}
+{{ end }}
+<!-- /check static/CDN image -->
+
+{{ if $staticImage }}
+  <!-- image static/CDN -->
+  {{ if $applestoreDarkPath }}
+    <img
+      fetchpriority="high"
+      decoding="async"
+      src="{{ $applestorePath | absURL }}"
+      alt="{{ $applestoreText }}"
+      class="img applestore-light"
+      height="{{ $applestoreHeight | default `auto` }}"
+      width="{{ $applestoreWidth | default `auto` }}" />
+    <img
+      fetchpriority="high"
+      decoding="async"
+      src="{{ $applestoreDarkPath | absURL }}"
+      alt="{{ $applestoreText }}"
+      class="img applestore-dark"
+      height="{{ $applestoreHeight | default `auto` }}"
+      width="{{ $applestoreWidth | default `auto` }}" />
+  {{ else }}
+    <img
+      fetchpriority="high"
+      decoding="async"
+      src="{{ $applestorePath | absURL }}"
+      alt="{{ $applestoreText }}"
+      class="img"
+      height="{{ $applestoreHeight | default `auto` }}"
+      width="{{ $applestoreWidth | default `auto` }}" />
+  {{ end }}
+
+{{ else if $assetImage }}
+
+  <!-- asset image -->
+  {{ $applestore:= resources.Get $applestorePath }}
+  {{ $applestoreExt := path.Ext $applestore }}
+
+
+  <!-- applestore height, width (if not svg) -->
+  {{ if ne $applestoreExt `.svg` }}
+    {{ $applestoreDefaultWidth = $applestore.Width }}
+    {{ $applestoreDefaultHeight = $applestore.Height }}
+  {{ end }}
+
+
+  <!-- checking gif/svg -->
+  {{ if or (eq $applestoreExt ".gif") (eq $applestoreExt ".svg") }}
+    {{ $scratch.Set "applestore" $applestore.RelPermalink }}
+    <!-- applestore processing to webp -->
+  {{ else }}
+    {{ $applestoreWidth2x:= add (string (mul (int $applestoreWidth | default $applestoreDefaultWidth) 2)) `x` }}
+    {{ $options:= add (string $applestoreWidth2x) " webp" }}
+    {{ if not $applestoreWebp }}
+      <!-- if webp false -->
+      {{ $options = add (string $applestoreWidth2x) " " }}
+    {{ end }}
+    <!-- end -->
+    {{ $scratch.Set "applestore" ($applestore.Resize $options).RelPermalink }}
+    <!-- applestore fallback -->
+    {{ $scratch.Set "applestore_fallback" ($applestore.Resize $applestoreWidth2x).RelPermalink }}
+  {{ end }}
+  <!-- /checking gif/svg -->
+
+  <!-- checking applestore dark -->
+  {{ if $applestoreDarkPath }}
+    <!-- checking applestore dark existence -->
+    {{ if fileExists (add `assets/` (string $applestoreDarkPath)) }}
+      {{ $applestoreDark:= resources.Get $applestoreDarkPath }}
+      {{ $applestoreDarkExt := path.Ext $applestoreDark }}
+
+
+      <!-- checking gif/svg -->
+      {{ if or (eq $applestoreDarkExt ".gif") (eq $applestoreDarkExt ".svg") }}
+        {{ $scratch.Set "applestore_dark" $applestoreDark.RelPermalink }}
+        <!-- applestore processing to webp -->
+      {{ else }}
+        {{ $applestoreWidth2x:= add (string (mul (int $applestoreWidth | default $applestoreDefaultWidth) 2)) `x` }}
+        {{ $options:= add (string $applestoreWidth2x) " webp" }}
+        {{ if not $applestoreWebp }}
+          <!-- if webp false -->
+          {{ $options = add (string $applestoreWidth2x) " " }}
+        {{ end }}
+        <!-- end -->
+
+        {{ $scratch.Set "applestore_dark" ($applestoreDark.Resize $options).RelPermalink }}
+        <!-- applestore fallback -->
+        {{ $scratch.Set "applestore_dark_fallback" ($applestoreDark.Resize $applestoreWidth2x).RelPermalink }}
+      {{ end }}
+      <!-- /checking gif/svg -->
+    {{ else }}
+      {{ warnf "%q not found" $applestoreDarkPath }}
+      {{ $applestoreDarkPath = false }}
+    {{ end }}
+  {{ end }}
+  <!-- / checking applestore dark -->
+
+  {{ if $applestoreDarkPath }}
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img applestore-light"
+      width="{{ $applestoreWidth | default $applestoreDefaultWidth }}"
+      height="{{ $applestoreHeight | default $applestoreDefaultHeight }}"
+      src="{{ $scratch.Get `applestore` }}"
+      alt="{{ $applestoreText }}"
+      onerror="this.onerror=null;this.src='{{ $scratch.Get `applestore_fallback` }}';" />
+
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img applestore-dark"
+      width="{{ $applestoreWidth | default $applestoreDefaultWidth }}"
+      height="{{ $applestoreHeight | default $applestoreDefaultHeight }}"
+      src="{{ $scratch.Get `applestore_dark` }}"
+      alt="{{ $applestoreText }}"
+      onerror="this.onerror=null;this.src='{{ $scratch.Get `applestore_dark_fallback` }}';" />
+  {{ else }}
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img"
+      width="{{ $applestoreWidth | default $applestoreDefaultWidth }}"
+      height="{{ $applestoreHeight | default $applestoreDefaultHeight }}"
+      src="{{ $scratch.Get `applestore` }}"
+      alt="{{ $applestoreText }}"
+      onerror="this.onerror=null;this.src='{{ $scratch.Get `applestore_fallback` }}'" />
+  {{ end }}
+  <!-- / checking applestore path -->
+{{ else if $applestoreText }}
+  <!-- applestore text -->
+  {{ $applestoreText }}
+{{ else }}
+  <!-- applestore title -->
+  {{ site.Title }}
+{{ end }}
