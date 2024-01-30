@@ -11,7 +11,7 @@ theme = "vidua"
 timeZone = "Europe/Amsterdam"
 # post pagination
 paginate = 2 # see https://gohugo.io/extras/pagination/
-# post excerpt
+# post excerpt 
 summaryLength = 10 # see https://gohugo.io/content-management/excerpts/
 # disable language
 disableLanguages = [
