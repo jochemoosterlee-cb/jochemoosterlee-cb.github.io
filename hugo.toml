@@ -6,7 +6,7 @@ title = "Vidua"
 # Default language
 defaultContentLanguage = "nl"
 # Your theme name
-theme = "vidua"
+# theme = "vidua"
 # Default time zone for time stamps; use any valid tz database name: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
 timeZone = "Europe/Amsterdam"
 # post pagination

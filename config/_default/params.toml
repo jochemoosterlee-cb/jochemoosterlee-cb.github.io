@@ -27,17 +27,12 @@ google_adsense = ""     # example: ca-pub-xxxxxxxxxxxxxxxx
 custom_script = ""
 # copyright
 ## copyright = "Designed & Developed by Vidua"
+
 #storebadges
-googlestore = "images/storebadges/google.png"
-googlestore_width = "203px"
-googlestore_height = "60px"
-googlestore_webp = true
-googlestore_text = "Vidua/Google"
-applestore = "images/storebadges/apple.png"
-applestore_width = "180px"
-applestore_height = "60px"
-applestore_webp = true
-applestore_text = "Vidua/Apple"
+googleplaystorebadge_width = "203px"
+googleplaystorebadge_height = "60px"
+appleappstorebadge_width = "180px"
+appleappstorebadge_height = "60px"
 
 # Default language
 [languages]

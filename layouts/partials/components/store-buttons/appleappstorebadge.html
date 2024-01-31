@@ -1,0 +1,86 @@
+{{ $appleappstorebadgePath:= "images/storebadges/appleappstorebadge.png" }}
+{{ $appleappstorebadgeText:= "" }}
+{{ $appleappstorebadgeWebp:= site.Params.appleappstorebadge_webp | default true }}
+{{ $appleappstorebadgeWidth:= site.Params.appleappstorebadge_width | replaceRE "px|x" "" }}
+{{ $appleappstorebadgeHeight:= site.Params.appleappstorebadge_height | replaceRE "px|x" "" }}
+{{ $appleappstorebadgeDefaultWidth:= "" }}
+{{ $appleappstorebadgeDefaultHeight:= "" }}
+{{ $context:= . }}
+{{ $assetImage:= false }}
+{{ $staticImage:= false }}
+{{ $scratch:= newScratch }}
+
+
+<!-- check asset image -->
+{{ if and $appleappstorebadgePath (fileExists (add `assets/` (string $appleappstorebadgePath))) }}
+  {{ $assetImage = true }}
+{{ end }}
+<!-- /check asset image -->
+
+<!-- check static/CDN image -->
+{{ if and $appleappstorebadgePath (or (hasPrefix $appleappstorebadgePath "http") (fileExists (add `static/` (string $appleappstorebadgePath)))) }}
+  {{ $staticImage = true }}
+{{ end }}
+<!-- /check static/CDN image -->
+
+{{ if $staticImage }}
+  <!-- image static/CDN -->
+  <img
+    fetchpriority="high"
+    decoding="async"
+    src="{{ $appleappstorebadgePath | absURL }}"
+    alt="{{ $appleappstorebadgeText }}"
+    class="img"
+    height="{{ $appleappstorebadgeHeight | default `auto` }}"
+    width="{{ $appleappstorebadgeWidth | default `auto` }}" />
+
+{{ else if $assetImage }}
+
+  <!-- asset image -->
+  {{ $appleappstorebadge:= resources.Get $appleappstorebadgePath }}
+  {{ $appleappstorebadgeExt := path.Ext $appleappstorebadge }}
+
+
+  <!-- appleappstorebadge height, width (if not svg) -->
+  {{ if ne $appleappstorebadgeExt `.svg` }}
+    {{ $appleappstorebadgeDefaultWidth = $appleappstorebadge.Width }}
+    {{ $appleappstorebadgeDefaultHeight = $appleappstorebadge.Height }}
+  {{ end }}
+
+
+  <!-- checking gif/svg -->
+  {{ if or (eq $appleappstorebadgeExt ".gif") (eq $appleappstorebadgeExt ".svg") }}
+    {{ $scratch.Set "appleappstorebadge" $appleappstorebadge.RelPermalink }}
+    <!-- appleappstorebadge processing to webp -->
+  {{ else }}
+    {{ $appleappstorebadgeWidth2x:= add (string (mul (int $appleappstorebadgeWidth | default $appleappstorebadgeDefaultWidth) 2)) `x` }}
+    {{ $options:= add (string $appleappstorebadgeWidth2x) " webp" }}
+    {{ if not $appleappstorebadgeWebp }}
+      <!-- if webp false -->
+      {{ $options = add (string $appleappstorebadgeWidth2x) " " }}
+    {{ end }}
+    <!-- end -->
+    {{ $scratch.Set "appleappstorebadge" ($appleappstorebadge.Resize $options).RelPermalink }}
+    <!-- appleappstorebadge fallback -->
+    {{ $scratch.Set "appleappstorebadge_fallback" ($appleappstorebadge.Resize $appleappstorebadgeWidth2x).RelPermalink }}
+  {{ end }}
+  <!-- /checking gif/svg -->
+
+  <!-- checking appleappstorebadge path -->
+  <img
+    fetchpriority="high"
+    decoding="async"
+    class="img"
+    width="{{ $appleappstorebadgeWidth | default $appleappstorebadgeDefaultWidth }}"
+    height="{{ $appleappstorebadgeHeight | default $appleappstorebadgeDefaultHeight }}"
+    src="{{ $scratch.Get `appleappstorebadge` }}"
+    alt="{{ $appleappstorebadgeText }}"
+    onerror="this.onerror=null;this.src='{{ $scratch.Get `appleappstorebadge_fallback` }}'" />
+  <!-- / checking appleappstorebadge path -->
+{{ else if $appleappstorebadgeText }}
+  <!-- appleappstorebadge text -->
+  {{ $appleappstorebadgeText }}
+{{ else }}
+  <!-- appleappstorebadge title -->
+  {{ site.Title }}
+{{ end }}
