@@ -26,8 +26,10 @@
           {{ with .storesbanner}}
             {{ if .enable }}
               <div class="stores-banner">
-                <a class="btn-store" href="{{ .linkappleappstore | absURL }}">{{ partial "applestore" }}</a>
-                <a class="btn-store" href="{{ .linkgoogleplaystore | absURL }}">{{ partial "googlestore" }}</a>
+                <div class="stores-btn-container">
+                  <a class="btn-store" href="{{ .linkappleappstore | absURL }}">{{ partial "applestore" }}</a>
+                  <a class="btn-store" href="{{ .linkgoogleplaystore | absURL }}">{{ partial "googlestore" }}</a>
+                </div>
               </div>
             {{ end }}  
           {{ end }}
