@@ -1,0 +1,160 @@
+{{ $googlestorePath:= .Src | default site.Params.googlestore }}
+{{ $googlestoreDarkPath:= .DarkSrc | default site.Params.googlestore_darkmode }}
+{{ $googlestoreText:= .googlestoreText | default site.Params.googlestore_text }}
+{{ $googlestoreWebp:= site.Params.googlestore_webp | default true }}
+{{ $googlestoreWidth:= site.Params.googlestore_width | replaceRE "px|x" "" }}
+{{ $googlestoreHeight:= site.Params.googlestore_height | replaceRE "px|x" "" }}
+{{ $googlestoreDefaultWidth:= "" }}
+{{ $googlestoreDefaultHeight:= "" }}
+{{ $context:= . }}
+{{ $assetImage:= false }}
+{{ $staticImage:= false }}
+{{ $scratch:= newScratch }}
+
+
+<!-- check asset image -->
+{{ if and $googlestorePath (fileExists (add `assets/` (string $googlestorePath))) }}
+  {{ $assetImage = true }}
+{{ end }}
+<!-- /check asset image -->
+
+<!-- check static/CDN image -->
+{{ if and $googlestorePath (or (hasPrefix $googlestorePath "http") (fileExists (add `static/` (string $googlestorePath)))) }}
+  {{ $staticImage = true }}
+{{ end }}
+<!-- /check static/CDN image -->
+
+{{ if $staticImage }}
+  <!-- image static/CDN -->
+  {{ if $googlestoreDarkPath }}
+    <img
+      fetchpriority="high"
+      decoding="async"
+      src="{{ $googlestorePath | absURL }}"
+      alt="{{ $googlestoreText }}"
+      class="img googlestore-light"
+      height="{{ $googlestoreHeight | default `auto` }}"
+      width="{{ $googlestoreWidth | default `auto` }}" />
+    <img
+      fetchpriority="high"
+      decoding="async"
+      src="{{ $googlestoreDarkPath | absURL }}"
+      alt="{{ $googlestoreText }}"
+      class="img googlestore-dark"
+      height="{{ $googlestoreHeight | default `auto` }}"
+      width="{{ $googlestoreWidth | default `auto` }}" />
+  {{ else }}
+    <img
+      fetchpriority="high"
+      decoding="async"
+      src="{{ $googlestorePath | absURL }}"
+      alt="{{ $googlestoreText }}"
+      class="img"
+      height="{{ $googlestoreHeight | default `auto` }}"
+      width="{{ $googlestoreWidth | default `auto` }}" />
+  {{ end }}
+
+{{ else if $assetImage }}
+
+  <!-- asset image -->
+  {{ $googlestore:= resources.Get $googlestorePath }}
+  {{ $googlestoreExt := path.Ext $googlestore }}
+
+
+  <!-- googlestore height, width (if not svg) -->
+  {{ if ne $googlestoreExt `.svg` }}
+    {{ $googlestoreDefaultWidth = $googlestore.Width }}
+    {{ $googlestoreDefaultHeight = $googlestore.Height }}
+  {{ end }}
+
+
+  <!-- checking gif/svg -->
+  {{ if or (eq $googlestoreExt ".gif") (eq $googlestoreExt ".svg") }}
+    {{ $scratch.Set "googlestore" $googlestore.RelPermalink }}
+    <!-- googlestore processing to webp -->
+  {{ else }}
+    {{ $googlestoreWidth2x:= add (string (mul (int $googlestoreWidth | default $googlestoreDefaultWidth) 2)) `x` }}
+    {{ $options:= add (string $googlestoreWidth2x) " webp" }}
+    {{ if not $googlestoreWebp }}
+      <!-- if webp false -->
+      {{ $options = add (string $googlestoreWidth2x) " " }}
+    {{ end }}
+    <!-- end -->
+    {{ $scratch.Set "googlestore" ($googlestore.Resize $options).RelPermalink }}
+    <!-- googlestore fallback -->
+    {{ $scratch.Set "googlestore_fallback" ($googlestore.Resize $googlestoreWidth2x).RelPermalink }}
+  {{ end }}
+  <!-- /checking gif/svg -->
+
+  <!-- checking googlestore dark -->
+  {{ if $googlestoreDarkPath }}
+    <!-- checking googlestore dark existence -->
+    {{ if fileExists (add `assets/` (string $googlestoreDarkPath)) }}
+      {{ $googlestoreDark:= resources.Get $googlestoreDarkPath }}
+      {{ $googlestoreDarkExt := path.Ext $googlestoreDark }}
+
+
+      <!-- checking gif/svg -->
+      {{ if or (eq $googlestoreDarkExt ".gif") (eq $googlestoreDarkExt ".svg") }}
+        {{ $scratch.Set "googlestore_dark" $googlestoreDark.RelPermalink }}
+        <!-- googlestore processing to webp -->
+      {{ else }}
+        {{ $googlestoreWidth2x:= add (string (mul (int $googlestoreWidth | default $googlestoreDefaultWidth) 2)) `x` }}
+        {{ $options:= add (string $googlestoreWidth2x) " webp" }}
+        {{ if not $googlestoreWebp }}
+          <!-- if webp false -->
+          {{ $options = add (string $googlestoreWidth2x) " " }}
+        {{ end }}
+        <!-- end -->
+
+        {{ $scratch.Set "googlestore_dark" ($googlestoreDark.Resize $options).RelPermalink }}
+        <!-- googlestore fallback -->
+        {{ $scratch.Set "googlestore_dark_fallback" ($googlestoreDark.Resize $googlestoreWidth2x).RelPermalink }}
+      {{ end }}
+      <!-- /checking gif/svg -->
+    {{ else }}
+      {{ warnf "%q not found" $googlestoreDarkPath }}
+      {{ $googlestoreDarkPath = false }}
+    {{ end }}
+  {{ end }}
+  <!-- / checking googlestore dark -->
+
+  {{ if $googlestoreDarkPath }}
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img googlestore-light"
+      width="{{ $googlestoreWidth | default $googlestoreDefaultWidth }}"
+      height="{{ $googlestoreHeight | default $googlestoreDefaultHeight }}"
+      src="{{ $scratch.Get `googlestore` }}"
+      alt="{{ $googlestoreText }}"
+      onerror="this.onerror=null;this.src='{{ $scratch.Get `googlestore_fallback` }}';" />
+
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img googlestore-dark"
+      width="{{ $googlestoreWidth | default $googlestoreDefaultWidth }}"
+      height="{{ $googlestoreHeight | default $googlestoreDefaultHeight }}"
+      src="{{ $scratch.Get `googlestore_dark` }}"
+      alt="{{ $googlestoreText }}"
+      onerror="this.onerror=null;this.src='{{ $scratch.Get `googlestore_dark_fallback` }}';" />
+  {{ else }}
+    <img
+      fetchpriority="high"
+      decoding="async"
+      class="img"
+      width="{{ $googlestoreWidth | default $googlestoreDefaultWidth }}"
+      height="{{ $googlestoreHeight | default $googlestoreDefaultHeight }}"
+      src="{{ $scratch.Get `googlestore` }}"
+      alt="{{ $googlestoreText }}"
+      onerror="this.onerror=null;this.src='{{ $scratch.Get `googlestore_fallback` }}'" />
+  {{ end }}
+  <!-- / checking googlestore path -->
+{{ else if $googlestoreText }}
+  <!-- googlestore text -->
+  {{ $googlestoreText }}
+{{ else }}
+  <!-- googlestore title -->
+  {{ site.Title }}
+{{ end }}
