@@ -18,6 +18,17 @@ disableLanguages = [
 ] # example: ["fr"] for disable french language. see https://gohugo.io/content-management/multilingual/
 hasCJKLanguage = false #  If hasCJKLanguage true, auto-detect Chinese/Japanese/Korean Languages in the content. see: https://gohugo.io/getting-started/configuration/#hascjklanguage
 
+########################### Security #############################
+[security]
+  enableInlineShortcodes = false
+  [security.exec]
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^npx$', '^postcss$']
+    osEnv = ['(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+|(XDG_CONFIG_)?HOME|USERPROFILE|SSH_AUTH_SOCK|DISPLAY|LANG)$']
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$']
+  [security.http]
+    methods = ['(?i)GET|POST']
+    urls = ['.*']
 
 ########################### Services #############################
 [services]

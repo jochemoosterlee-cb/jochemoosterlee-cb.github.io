@@ -1,4 +1,6 @@
+{{ $appleappstorelink:= site.Params.appleappstore_link }}
+{{ $googleplaystorelink:= site.Params.googleplaystore_link }}
 <div class="stores-banner">
-  <a class="btn-store" href="{{ .linkappleappstore | absURL }}">{{ partial "components/store-buttons/googleplaystorebadge" }}</a>
-  <a class="btn-store" href="{{ .linkgoogleplaystore | absURL }}">{{ partial "components/store-buttons/appleappstorebadge" }}</a>
+  <a class="btn-store" href="{{ $appleappstorelink | absURL }}">{{ partial "components/store-buttons/appleappstorebadge" }}</a>
+  <a class="btn-store" href="{{ $googleplaystorelink | absURL }}">{{ partial "components/store-buttons/googleplaystorebadge" }}</a>
 </div>

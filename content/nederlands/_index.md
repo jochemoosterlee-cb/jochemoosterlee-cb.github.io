@@ -3,7 +3,7 @@
 banner:
   title: "Onbezorgd online zaken doen"
   content: "Zo simpel is het"
-  image: "/images/page-header-2x-bf8ddee6ee7cffc2c9fa36a3fb50195f.png"
+  image: "/images/page-header.png"
   button:
     enable: false
     label: ""
@@ -18,7 +18,7 @@ banner:
 # Features
 features:
   - title: "Aanmelden"
-    image: "/images/aanmelden-00e97cfce74846c4ef1d48bec959e52c.png"
+    image: "/images/aanmelden.png"
     content: "Meld je eenvoudig aan bij Vidua met een eenmalig videogesprek. Je laat je paspoort of ID-kaart zien tijdens je aanmelding. Daarna kan je gebruikmaken van de Vidua diensten."
     button:
       enable: true
@@ -26,7 +26,7 @@ features:
       link: "https://www.vidua.nl/aanmelden"
 
   - title: "Identificeren"
-    image: "/images/identificeren-0acff38bed57dd8545e63f4acff6f6c7.png"
+    image: "/images/identificeren.png"
     content: "Eenvoudig en snel online identificeren met Vidua. Onbezorgd en veilig je gegevens delen met aangesloten partijen. Een kopie van je paspoort sturen is niet meer nodig."
     link:
       enable: true
@@ -38,7 +38,7 @@ features:
       link: ""
   
   - title: "Ondertekenen"
-    image: "/images/ondertekenen-3eefca6e81756bcca73f06efe8dbe52e.png"
+    image: "/images/ondertekenen.png"
     content: "Eenvoudig gekwalificeerde elektronische handtekeningen plaatsen onder documenten. Printen, tekenen, scannen en opsturen hoeft voortaan niet meer. Zo simpel is het."
     button:
       enable: false

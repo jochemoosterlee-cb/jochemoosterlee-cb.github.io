@@ -29,8 +29,10 @@ custom_script = ""
 ## copyright = "Designed & Developed by Vidua"
 
 #storebadges
+googleplaystore_link = "https://play.google.com/store/apps/details?id=nl.vidua.wallet"
 googleplaystorebadge_width = "203px"
 googleplaystorebadge_height = "60px"
+appleappstore_link = "https://apps.apple.com/nl/app/vidua/id6443842104"
 appleappstorebadge_width = "180px"
 appleappstorebadge_height = "60px"
 
