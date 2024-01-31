@@ -5,6 +5,10 @@
       <div class="container">
         <div class="row justify-center">
           <div class="lg:col-7 mb-8 text-center">
+            <p style = "padding-bottom: 20px;">
+              <button class="btn btn-primary" onclick="myFunction()">What is my OS?</button>
+            </p>
+            <script defer language="javascript" type="text/javascript"  src='{{ "/test/test.js" | urlize | relURL }}'></script>
             <h1 class="mb-4">
               {{ .title | markdownify }}
             </h1>
