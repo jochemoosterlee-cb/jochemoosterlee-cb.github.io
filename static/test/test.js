@@ -22,5 +22,11 @@ function myFunction() {
     return os;
   }
 
-alert(window.navigator.userAgent);
+  function androidV(ua) { 
+    ua = (ua || navigator.userAgent).toLowerCase(); 
+    var match = ua.match(/android\s([0-9\.]*)/i); 
+    return match ? match[1] : undefined; 
+}; 
+
+alert(androidV());
 }
