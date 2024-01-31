@@ -72,3 +72,13 @@ main {
     @apply no-underline hover:text-white #{!important};
   }
 }
+
+// store buttons
+.stores-banner {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-store {
+  padding: 10px;
+}

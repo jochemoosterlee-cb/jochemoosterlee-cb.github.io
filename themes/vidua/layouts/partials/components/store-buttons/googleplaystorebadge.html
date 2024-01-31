@@ -1,0 +1,86 @@
+{{ $googleplaystorebadgePath:= "images/storebadges/googleplaystorebadge.png" }}
+{{ $googleplaystorebadgeText:= "" }}
+{{ $googleplaystorebadgeWebp:= site.Params.googleplaystorebadge_webp | default true }}
+{{ $googleplaystorebadgeWidth:= site.Params.googleplaystorebadge_width | replaceRE "px|x" "" }}
+{{ $googleplaystorebadgeHeight:= site.Params.googleplaystorebadge_height | replaceRE "px|x" "" }}
+{{ $googleplaystorebadgeDefaultWidth:= "" }}
+{{ $googleplaystorebadgeDefaultHeight:= "" }}
+{{ $context:= . }}
+{{ $assetImage:= false }}
+{{ $staticImage:= false }}
+{{ $scratch:= newScratch }}
+
+
+<!-- check asset image -->
+{{ if and $googleplaystorebadgePath (fileExists (add `assets/` (string $googleplaystorebadgePath))) }}
+  {{ $assetImage = true }}
+{{ end }}
+<!-- /check asset image -->
+
+<!-- check static/CDN image -->
+{{ if and $googleplaystorebadgePath (or (hasPrefix $googleplaystorebadgePath "http") (fileExists (add `static/` (string $googleplaystorebadgePath)))) }}
+  {{ $staticImage = true }}
+{{ end }}
+<!-- /check static/CDN image -->
+
+{{ if $staticImage }}
+  <!-- image static/CDN -->
+  <img
+    fetchpriority="high"
+    decoding="async"
+    src="{{ $googleplaystorebadgePath | absURL }}"
+    alt="{{ $googleplaystorebadgeText }}"
+    class="img"
+    height="{{ $googleplaystorebadgeHeight | default `auto` }}"
+    width="{{ $googleplaystorebadgeWidth | default `auto` }}" />
+
+{{ else if $assetImage }}
+
+  <!-- asset image -->
+  {{ $googleplaystorebadge:= resources.Get $googleplaystorebadgePath }}
+  {{ $googleplaystorebadgeExt := path.Ext $googleplaystorebadge }}
+
+
+  <!-- googleplaystorebadge height, width (if not svg) -->
+  {{ if ne $googleplaystorebadgeExt `.svg` }}
+    {{ $googleplaystorebadgeDefaultWidth = $googleplaystorebadge.Width }}
+    {{ $googleplaystorebadgeDefaultHeight = $googleplaystorebadge.Height }}
+  {{ end }}
+
+
+  <!-- checking gif/svg -->
+  {{ if or (eq $googleplaystorebadgeExt ".gif") (eq $googleplaystorebadgeExt ".svg") }}
+    {{ $scratch.Set "googleplaystorebadge" $googleplaystorebadge.RelPermalink }}
+    <!-- googleplaystorebadge processing to webp -->
+  {{ else }}
+    {{ $googleplaystorebadgeWidth2x:= add (string (mul (int $googleplaystorebadgeWidth | default $googleplaystorebadgeDefaultWidth) 2)) `x` }}
+    {{ $options:= add (string $googleplaystorebadgeWidth2x) " webp" }}
+    {{ if not $googleplaystorebadgeWebp }}
+      <!-- if webp false -->
+      {{ $options = add (string $googleplaystorebadgeWidth2x) " " }}
+    {{ end }}
+    <!-- end -->
+    {{ $scratch.Set "googleplaystorebadge" ($googleplaystorebadge.Resize $options).RelPermalink }}
+    <!-- googleplaystorebadge fallback -->
+    {{ $scratch.Set "googleplaystorebadge_fallback" ($googleplaystorebadge.Resize $googleplaystorebadgeWidth2x).RelPermalink }}
+  {{ end }}
+  <!-- /checking gif/svg -->
+
+  <!-- checking googleplaystorebadge path -->
+  <img
+    fetchpriority="high"
+    decoding="async"
+    class="img"
+    width="{{ $googleplaystorebadgeWidth | default $googleplaystorebadgeDefaultWidth }}"
+    height="{{ $googleplaystorebadgeHeight | default $googleplaystorebadgeDefaultHeight }}"
+    src="{{ $scratch.Get `googleplaystorebadge` }}"
+    alt="{{ $googleplaystorebadgeText }}"
+    onerror="this.onerror=null;this.src='{{ $scratch.Get `googleplaystorebadge_fallback` }}'" />
+  <!-- / checking googleplaystorebadge path -->
+{{ else if $googleplaystorebadgeText }}
+  <!-- googleplaystorebadge text -->
+  {{ $googleplaystorebadgeText }}
+{{ else }}
+  <!-- googleplaystorebadge title -->
+  {{ site.Title }}
+{{ end }}

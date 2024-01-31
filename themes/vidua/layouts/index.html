@@ -13,12 +13,7 @@
             </p>
             {{ with .button }}
               {{ if .enable }}
-                <a
-                  class="btn btn-primary"
-                  href="{{ .link | absURL }}"
-                  {{ if strings.HasPrefix .link `http` }}
-                    target="_blank" rel="noopener"
-                  {{ end }}>
+                <a class="btn btn-primary" href="{{ .link | absURL }}">
                   {{ .label }}
                   <i class="fa fa-arrow-right pl-2"></i>
                 </a>
@@ -30,10 +25,7 @@
           </div>
           {{ with .storesbanner}}
             {{ if .enable }}
-              <div class="stores-banner">
-                <a class="btn-store" href="{{ .linkappleappstore | absURL }}">{{ partial "applestore" }}</a>
-                <a class="btn-store" href="{{ .linkgoogleplaystore | absURL }}">{{ partial "googlestore" }}</a>
-              </div>
+              {{ partial "components/store-buttons" }}
             {{ end }}  
           {{ end }}
         </div>
@@ -114,7 +106,8 @@
                 <div class="swiper-wrapper">
                   {{ range .Params.testimonials }}
                     <div class="swiper-slide">
-                      <div class="bg-theme-light  rounded-lg px-7 py-10">
+                      <div
+                        class="bg-theme-light  rounded-lg px-7 py-10">
                         <div class="text-dark ">
                           <svg
                             width="33"
