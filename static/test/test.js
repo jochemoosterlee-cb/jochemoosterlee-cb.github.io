@@ -1,32 +1,10 @@
 function myFunction() {
-  function getOS() {
-    const userAgent = window.navigator.userAgent,
-          platform = window.navigator?.userAgentData?.platform,
-          macosPlatforms = ['macOS', 'Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-          windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-          iosPlatforms = ['iPhone', 'iPad', 'iPod'];
-    let os = null;
-
-    if (macosPlatforms.indexOf(platform) !== -1) {
-      os = 'Mac OS';
-    } else if (iosPlatforms.indexOf(platform) !== -1) {
-      os = 'iOS';
-    } else if (windowsPlatforms.indexOf(platform) !== -1) {
-      os = 'Windows';
-    } else if (/Android/.test(userAgent)) {
-      os = 'Android';
-    } else if (/Linux/.test(platform)) {
-      os = 'Linux';
-    }
-
-    return os;
-  }
-
-  function androidV(ua) { 
-    ua = (ua || navigator.userAgent).toLowerCase(); 
-    var match = ua.match(/android\s([0-9\.]*)/i); 
-    return match ? match[1] : undefined; 
-}; 
-
-alert(androidV());
+  os = navigator.userAgentData
+  .getHighEntropyValues([
+    "architecture",
+    "model",
+    "platformVersion",
+    "fullVersionList",
+  ])
+  .then((values) => alert(JSON.stringify(values)));
 }
