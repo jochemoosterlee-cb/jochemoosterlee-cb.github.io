@@ -10,16 +10,16 @@
       },
       "text_color": {
         "default": "#444444",
-        "dark": "#040404",
+        "dark": "#343434",
         "light": "#717171"
       }
     }
   },
   "fonts": {
     "font_family": {
-      "primary": "Nunito Sans:wght@400;600",
+      "primary": "Barlow:wght@400;600",
       "primary_type": "sans-serif",
-      "secondary": "Nunito Sans:wght@500;700",
+      "secondary": "Barlow:wght@500;700",
       "secondary_type": "sans-serif"
     },
     "font_size": { "base": "16", "scale": "1.250" }

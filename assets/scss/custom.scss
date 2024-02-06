@@ -1,14 +1,4 @@
-// Add your own custom styles here
 .btn {
-  border-radius: 1.6rem 0px;
-  padding: 1.2rem 2.4rem;
-  background-size: 202% 100%;
-  background-image: linear-gradient(to right ,rgb(255, 151, 110) 50%,rgb(0, 95, 156) 50%, rgb(169, 183, 215) 100%);
-  transition: background-position 200ms;
-  border-color: rgb(255, 151, 110)
-}
-
-.btn-banner {
   border-radius: 1.6rem 0px;
   padding: 1.2rem 2.4rem;
   background-size: 202% 100%;
@@ -29,6 +19,9 @@
   border-left: 0;
   border-right: 0;
   border-bottom: 0;
+  box-shadow: 0px 5px 5px #00000003;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .logo-light {
@@ -36,8 +29,8 @@
 }
 
 [type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select {
-  background-color: rgb(229, 233, 243);
   border-width: 0px;
+  font-weight: 300;
 }
 
 .lg\:col-7 {
@@ -61,7 +54,78 @@
 
 @media (min-width: 1024px) {
 
-  .lg\:\!max-w-\[1320px\] {
-    max-width: 1320px !important;
+  .lg\:\!max-w-\[max\] {
+    max-width: 100% !important;
   }
 }
+
+.title-font {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+.subtitle-font {
+  font-size: 2rem;
+}
+
+.nav-link {
+  font-weight: 300;
+}
+
+.nav-dropdown-link {
+  font-weight: 300;
+}
+
+.main-toggle {
+  border-bottom: solid;
+  color: rgb(255, 151, 11) !important;
+}
+
+.logo-main-toggle > div {
+  padding-top: 5px;
+}
+
+.logo-main-toggle a.nav-link {
+  padding-bottom: 0px;
+  padding-top: 5px;
+}
+
+.logo-main-toggle li.nav-item {
+  margin-left: 0px !important;
+}
+
+
+
+
+
+// .nav-menu {
+//   font-size: 1.1rem;
+// }
+
+// .navbar-brand {
+//   margin-bottom: 25px;
+// }
+
+// input#nav-toggle + label {
+//   margin-bottom: 15px;
+// }
+
+// .nav-dropdown span a.nav-link {
+//  padding-top: 0px;
+// }
+
+// .nav-dropdown span svg {
+//   margin-top: -10px;
+// }
+
+// nav {
+//   height: 50px;
+// }
+
+// .nav-dropdown-list {
+//   margin-top: -20px !important;
+// }
+
+// .language-dropdown-list {
+//   min-width: 0px !important;
+// }

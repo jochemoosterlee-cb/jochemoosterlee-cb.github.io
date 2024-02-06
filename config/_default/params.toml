@@ -5,7 +5,7 @@ favicon = "images/favicon.png"
 logo = "images/logo.svg"
 # use `px` or `x` with logo_width, example: "100px".
 # Note: logo_width is not work with .svg file
-logo_width = "160px"
+logo_width = "130px"
 logo_height = "16px"
 # if logo_webp set false, will not generate WEBP version of logo | default is true
 logo_webp = true
@@ -28,6 +28,11 @@ custom_script = ""
 # copyright
 ## copyright = "Designed & Developed by Vidua"
 
+#main choice
+choice_1_nl = "particulier"
+choice_1_en = "individual"
+choice_2_nl = "zakelijk"
+choice_2_en = "business"
 
 #storebadges
 googleplaystore_link = "https://play.google.com/store/apps/details?id=nl.vidua.wallet"

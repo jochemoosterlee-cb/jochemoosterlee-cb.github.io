@@ -1,6 +1,7 @@
 {{ define "main" }}
+
   <!-- Banner -->
-  {{ with .Params.banner }}
+  <!-- {{ with .Params.banner }}
     <section class="section pt-14">
       <div class="container">
         <div class="row justify-center">
@@ -9,10 +10,10 @@
               <button class="btn btn-primary" onclick="myFunction()">What is my OS?</button>
             </p>
             <script defer language="javascript" type="text/javascript"  src='{{ "/test/test.js" | urlize | relURL }}'></script>  */}}
-            <h1 class="mb-4">
+            <h1 class="mb-4 title-font">
               {{ .title | markdownify }}
             </h1>
-            <p class="mb-8">
+            <p class="mb-8 subtitle-font">
               {{ .content | markdownify }}
             </p>
             {{ with .button }}
@@ -25,7 +26,7 @@
             {{ end }}
           </div>
           <div class="col-12">
-            {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "mx-auto lg:!max-w-[1320px]" ) }}
+            {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "mx-auto lg:!max-w-[max]" ) }}
           </div>
           {{ with .storesbanner}}
             {{ if .enable }}
@@ -35,10 +36,11 @@
         </div>
       </div>
     </section>
-  {{ end }}
+  {{ end }} -->
   <!-- /Banner -->
 
   <!-- Features -->
+  <!--
   {{ range $i, $e:= .Params.features }}
     <section class="section-sm bg-non-gradient">
       <div class="container">
@@ -88,11 +90,11 @@
         </div>
       </div>
     </section>
-  {{ end }}
+  {{ end }} -->
   <!-- /Features -->
 
   <!-- Testimonials -->
-  {{ with site.GetPage "sections/testimonial" }}
+  {{/*  {{ with site.GetPage "sections/testimonial" }}
     {{ if .Params.enable }}
       <section class="section">
         <div class="container">
@@ -152,6 +154,6 @@
         </div>
       </section>
     {{ end }}
-  {{ end }}
+  {{ end }}  */}}
   <!-- /Testimonials -->
 {{ end }}

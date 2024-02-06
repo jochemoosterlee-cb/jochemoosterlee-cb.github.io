@@ -2,59 +2,79 @@
 
 # main menu
 [[main]]
-name = "Home"
-url = "/"
+name = "Individual"
+url = "/individual"
 weight = 1
 
 [[main]]
-name = "About"
-url = "about/"
+name = "Business"
+url = "/business"
 weight = 2
 
-[[main]]
-name = "Elements"
-url = "elements/"
+# person menu
+[[individual]]
+name = "Home"
+url = "/individual"
+weight = 1
+
+[[individual]]
+name = "Why"
+url = "/individual/why"
+weight = 2
+
+  [[individual]]
+  name = "Secure"
+  url = "/individual/why/secure"
+  weight = 1
+  parent = "Why"
+
+  [[individual]]
+  name = "Privacy"
+  url = "/individual/why/privacy"
+  weight = 2
+  parent = "Why"
+
+[[individual]]
+name = "Need help?"
+url = "/individual/need-help "
 weight = 3
 
-[[main]]
-weight = 4
-name = "Pages"
-hasChildren = true
+# business menu
+[[business]]
+name = "Home"
+url = "/business"
+weight = 1
 
-[[main]]
-parent = "Pages"
-name = "Blog"
-url = "blog/"
+[[business]]
+name = "Services"
+url = "/business/services"
+weight = 2
 
-[[main]]
-parent = "Pages"
-name = "Contact"
-url = "contact/"
+  [[business]]
+  name = "Overzicht"
+  url = "/business/services/overview"
+  weight = 1
+  parent = "Services"
 
-[[main]]
-parent = "Pages"
-name = "Authors"
-url = "authors/"
+  [[business]]
+  name = "Identification"
+  url = "/business/services/identification"
+  weight = 2
+  parent = "Services"
 
-[[main]]
-parent = "Pages"
-name = "Categories"
-url = "categories/"
-
-[[main]]
-parent = "Pages"
-name = "404 Page"
-url = "404/"
-
+[[business]]
+name = "Carreer"
+url = "/business/carreer"
+weight = 3
 
 # footer menu
 [[footer]]
-name = "About"
+name = "Over"
 url = "about/"
 weight = 1
 
 [[footer]]
-name = "Elements"
+name = "Elementen"
 url = "elements/"
 weight = 2
 

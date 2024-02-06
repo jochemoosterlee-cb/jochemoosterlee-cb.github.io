@@ -2,55 +2,70 @@
 
 # main menu
 [[main]]
-name = "Home"
-url = "/"
+name = "Particulier"
+url = "/individual"
 weight = 1
 
 [[main]]
-name = "Over"
-url = "about/"
+name = "Zakelijk"
+url = "/business"
 weight = 2
 
-[[main]]
-name = "Ondertekenen"
-url = "ondertekenen/"
-weight = 2.5
+# individual menu
+[[individual]]
+name = "Home"
+url = "/individual"
+weight = 1
 
-[[main]]
-name = "Elementen"
-url = "elements/"
+[[individual]]
+name = "Waarom"
+url = "/individual/why"
+weight = 2
+
+  [[individual]]
+  name = "Veilig"
+  url = "/individual/why/secure"
+  weight = 1
+  parent = "Waarom"
+
+  [[individual]]
+  name = "Privacy"
+  url = "/individual/why/privacy"
+  weight = 2
+  parent = "Waarom"
+
+[[individual]]
+name = "Hulp nodig?"
+url = "/individual/need-help "
 weight = 3
 
-[[main]]
-weight = 4
-name = "Pagina's"
-hasChildren = true
+# business menu
+[[business]]
+name = "Home"
+url = "/business"
+weight = 1
 
-[[main]]
-parent = "Pagina's"
-name = "Blog"
-url = "blog/"
+[[business]]
+name = "Services"
+url = "/business/services"
+weight = 2
 
-[[main]]
-parent = "Pagina's"
-name = "Contact"
-url = "contact/"
+  [[business]]
+  name = "Overzicht"
+  url = "/business/services/overview"
+  weight = 1
+  parent = "Services"
 
-[[main]]
-parent = "Pagina's"
-name = "Auteurs"
-url = "authors/"
+  [[business]]
+  name = "Identificatie"
+  url = "/business/services/identification"
+  weight = 2
+  parent = "Services"
 
-[[main]]
-parent = "Pagina's"
-name = "Categorieën"
-url = "categories/"
-
-[[main]]
-parent = "Pagina's"
-name = "404 Pagina"
-url = "404/"
-
+[[business]]
+name = "Werken bij"
+url = "/business/carreer"
+weight = 3
 
 # footer menu
 [[footer]]
