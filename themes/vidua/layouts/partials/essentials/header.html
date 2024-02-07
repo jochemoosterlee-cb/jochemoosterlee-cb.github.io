@@ -1,23 +1,5 @@
 {{ $currentPage := . }}
 
-<!--
-// main script
-(function () {
-  "use strict";
-
-  // Dropdown Menu Toggler For Mobile
-  // ----------------------------------------
-  const dropdownMenuToggler = document.querySelectorAll(
-    ".nav-dropdown > .nav-link",
-  );
-
-  dropdownMenuToggler.forEach((toggler) => {
-    toggler?.addEventListener("click", (e) => {
-      e.target.closest(".nav-item").classList.toggle("active");
-    });
-  });
--->
-
 <header
   class="header {{ if site.Params.navbar_fixed }}sticky top-0{{ end }} z-30">
   <div class = "mainbar container">
@@ -41,7 +23,8 @@
           
           <li class="nav-item">
             <a
-              class='nav-link {{ if and (or (strings.Contains $currentPage site.Params.choice_1_en) (strings.Contains $currentPage "Page(/_index.md)")) (or (eq .Name (strings.FirstUpper site.Params.choice_1_nl)) (eq .Name (strings.FirstUpper site.Params.choice_1_en))) }}main-toggle{{ else if and (strings.Contains $currentPage site.Params.choice_2_en) (or (eq .Name (strings.FirstUpper site.Params.choice_2_nl)) (eq .Name (strings.FirstUpper site.Params.choice_2_en))) }}main-toggle{{- end -}}'
+              class='nav-link {{ if or (and (strings.Contains $currentPage site.Params.choice_2_en) (or (eq .Name (strings.FirstUpper site.Params.choice_2_nl)) (eq .Name (strings.FirstUpper site.Params.choice_2_en))))
+                (and (or (strings.Contains $currentPage site.Params.choice_1_en) (strings.Contains $currentPage "Page(//_index.md)")) (or (eq .Name (strings.FirstUpper site.Params.choice_1_nl)) (eq .Name (strings.FirstUpper site.Params.choice_1_en)))) }}main-toggle{{- end -}}'
               {{ if findRE `^http` .URL }}
                 target="_blank" rel="noopener"
               {{ end }}
@@ -82,21 +65,22 @@
     </div>
 
     <!-- individual navbar -->
-    {{ if or (strings.Contains $currentPage site.Params.choice_1_en) (strings.Contains $currentPage "Page(/_index.md)") }}
+    {{ if or (strings.Contains $currentPage site.Params.choice_1_en) (strings.Contains $currentPage "Page(//_index.md)") }}
     <ul
       id="nav-menu"
       class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8">
       {{ $currentPage := . }}
       {{ range site.Menus.individual }}
         {{ $menuURL := .URL | absLangURL }}
-        {{ $pageURL:= $currentPage.Permalink | absLangURL }}
-        {{ $active := eq $menuURL $pageURL }}
+        {{ $pageURL := $currentPage.Permalink | absLangURL }}
+        {{ $trimmedPageURL := strings.TrimRight "/" $pageURL}}
+        {{ $active := eq $menuURL $trimmedPageURL }}
         {{ if .HasChildren }}
-          <li class="nav-item nav-dropdown group relative">
+          <li class="nav-item nav-dropdown group relative {{ if $active }}active{{- end -}}">
             <span
               class="nav-link {{ range .Children }}
                 {{ $childURL := .URL | absLangURL }}
-                {{ $active := eq $childURL $pageURL }}
+                {{ $active := strings.Contains $pageURL $childURL }}
                 {{ if $active }}active{{ end }}
               {{ end }} inline-flex items-center">
               {{ .Name }}
@@ -109,7 +93,7 @@
               class="nav-dropdown-list lg:group-hover:visible lg:group-hover:opacity-100">
               {{ range .Children }}
                 {{ $childURL := .URL | absLangURL }}
-                {{ $active := eq $childURL $pageURL }}
+                {{ $active := strings.Contains $pageURL $childURL }}
                 <li class="nav-dropdown-item">
                   <a
                     class="nav-dropdown-link {{ if $active }}
@@ -161,13 +145,14 @@
       {{ range site.Menus.business }}
         {{ $menuURL := .URL | absLangURL }}
         {{ $pageURL:= $currentPage.Permalink | absLangURL }}
-        {{ $active := eq $menuURL $pageURL }}
+        {{ $trimmedPageURL := strings.TrimRight "/" $pageURL}}
+        {{ $active := eq $menuURL $trimmedPageURL }}
         {{ if .HasChildren }}
           <li class="nav-item nav-dropdown group relative">
             <span
               class="nav-link {{ range .Children }}
                 {{ $childURL := .URL | absLangURL }}
-                {{ $active := eq $childURL $pageURL }}
+                {{ $active := strings.Contains $pageURL $childURL }}
                 {{ if $active }}active{{ end }}
               {{ end }} inline-flex items-center">
               {{ .Name }}
@@ -180,7 +165,7 @@
               class="nav-dropdown-list lg:group-hover:visible lg:group-hover:opacity-100">
               {{ range .Children }}
                 {{ $childURL := .URL | absLangURL }}
-                {{ $active := eq $childURL $pageURL }}
+                {{ $active := strings.Contains $pageURL $childURL }}
                 <li class="nav-dropdown-item">
                   <a
                     class="nav-dropdown-link {{ if $active }}

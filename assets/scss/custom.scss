@@ -85,12 +85,14 @@
 }
 
 .main-toggle {
-  border-bottom: solid;
-  color: rgb(255, 151, 11) !important;
+  font-weight: 600;
+  border-bottom: 1.5px solid;
+  // color: rgb(255, 151, 11) !important;
 }
 
 .logo-main-toggle > div {
-  padding-top: 5px;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 .logo-main-toggle a.nav-link {
@@ -102,6 +104,13 @@
   margin-left: 0px !important;
 }
 
+.active {
+  font-weight: 600;
+}
+
+.logo-main-toggle #nav-menu {
+  font-size: 0.8rem;
+}
 
 // .nav-menu {
 //   font-size: 1.1rem;
