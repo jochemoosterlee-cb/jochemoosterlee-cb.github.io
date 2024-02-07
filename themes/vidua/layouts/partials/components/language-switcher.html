@@ -6,44 +6,23 @@
 {{ $siteLanguages := site.Home.AllTranslations }}
 {{ $pageLink := replace (replace $context.RelPermalink (add $pageLang "/") "") $base.Path "/" }}
 
-{{/*  {{ if $context.IsTranslated }}
-  <ul id="language-switcher" class="{{ $class }}">
+{{ if $context.IsTranslated }}
+  <ul id="nav-menu" class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8">
     <li class="nav-item nav-dropdown group relative">
-      <span
-        class="nav-link inline-flex items-center">
-        <a class="nav-link uppercase">{{ $pageLang }}</a>
+      <span class="nav-link inline-flex items-center uppercase">
+        {{ $pageLang }}
         <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
-          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+          <path
+            d="M10,15.5l5.7-5.7l-0.9-0.9L10,13.6L5.3,8.9L4.4,9.8L10,15.5z" />
         </svg>
       </span>
       <ul class="nav-dropdown-list lg:group-hover:visible lg:group-hover:opacity-100">
         {{ range $siteLanguages }}
           <li class="nav-dropdown-item">
-            <a class="nav-dropdown-link" href="{{ replace (add .RelPermalink $pageLink) `//` `/` }}"> {{ .Language.LanguageName }} </a>
+            <a class="nav-dropdown-link uppercase" href="{{ replace (add .RelPermalink $pageLink) `//` `/` }}"> {{ .Language.LanguageName }} </a>
           </li>
         {{ end }}
       </ul>
     </li>
   </ul>
-{{ end }}  */}}
-
-{{ if $context.IsTranslated }}
-  <select class="{{ $class }}" onchange="location = this.value">
-    {{ range $siteLanguages }}
-      {{ if eq (string $pageLang) (string .Language) }}
-        <option
-          id="{{ .Language }}"
-          value="{{ replace (add .RelPermalink $pageLink) `//` `/` }}"
-          selected>
-          {{ .Language.LanguageName }}
-        </option>
-      {{ else }}
-        <option
-          id="{{ .Language }}"
-          value="{{ replace (add .RelPermalink $pageLink) `//` `/` }}">
-          {{ .Language.LanguageName }}
-        </option>
-      {{ end }}
-    {{ end }}
-  </select>
 {{ end }}
