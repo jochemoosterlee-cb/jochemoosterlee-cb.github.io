@@ -18,9 +18,26 @@ url = "/individual"
 weight = 1
 
 [[individual]]
+name = "Get started"
+url = "/individual/get-started"
+weight = 2
+
+  [[individual]]
+  name = "Sign up"
+  url = "/individual/get-started/sign-up"
+  weight = 1
+  parent = "Get started"
+
+  [[individual]]
+  name = "How to use"
+  url = "/individual/get-started/use"
+  weight = 2
+  parent = "Get started"
+
+[[individual]]
 name = "Why"
 url = "/individual/why"
-weight = 2
+weight = 3
 
   [[individual]]
   name = "Secure"
@@ -37,7 +54,7 @@ weight = 2
 [[individual]]
 name = "Need help?"
 url = "/individual/need-help "
-weight = 3
+weight = 4
 
 # business menu
 [[business]]
@@ -51,21 +68,44 @@ url = "/business/services"
 weight = 2
 
   [[business]]
-  name = "Overzicht"
+  name = "Overview"
   url = "/business/services/overview"
   weight = 1
   parent = "Services"
 
   [[business]]
-  name = "Identification"
-  url = "/business/services/identification"
+  name = "Safe login"
+  url = "/business/services/safe-login"
   weight = 2
   parent = "Services"
+
+  [[business]]
+  name = "Identification"
+  url = "/business/services/identification"
+  weight = 3
+  parent = "Services"
+
+  [[business]]
+  name = "Qualified signing"
+  url = "/business/services/qualified-signing"
+  weight = 4
+  parent = "Services"
+
+  [[business]]
+  name = "Sharing attributes"
+  url = "/business/services/sharing-attributes"
+  weight = 4
+  parent = "Services"
+
+[[business]]
+name = "Developers"
+url = "/business/developers"
+weight = 3
 
 [[business]]
 name = "Carreer"
 url = "/business/carreer"
-weight = 3
+weight = 4
 
 # footer menu
 [[footer]]

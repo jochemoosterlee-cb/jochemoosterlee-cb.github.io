@@ -18,9 +18,26 @@ url = "/individual"
 weight = 1
 
 [[individual]]
+name = "Aan de slag"
+url = "/individual/get-started"
+weight = 2
+
+  [[individual]]
+  name = "Aanmelden"
+  url = "/individual/get-started/sign-up"
+  weight = 1
+  parent = "Aan de slag"
+
+  [[individual]]
+  name = "Hoe te gebruiken"
+  url = "/individual/get-started/use"
+  weight = 2
+  parent = "Aan de slag"
+
+[[individual]]
 name = "Waarom"
 url = "/individual/why"
-weight = 2
+weight = 3
 
   [[individual]]
   name = "Veilig"
@@ -37,7 +54,7 @@ weight = 2
 [[individual]]
 name = "Hulp nodig?"
 url = "/individual/need-help "
-weight = 3
+weight = 4
 
 # business menu
 [[business]]
@@ -57,15 +74,38 @@ weight = 2
   parent = "Services"
 
   [[business]]
-  name = "Identificatie"
-  url = "/business/services/identification"
+  name = "Veilig aanmelden"
+  url = "/business/services/safe-login"
   weight = 2
   parent = "Services"
+
+  [[business]]
+  name = "Identificatie"
+  url = "/business/services/identification"
+  weight = 3
+  parent = "Services"
+
+  [[business]]
+  name = "Gekwalificeerd ondertekenen"
+  url = "/business/services/qualified-signing"
+  weight = 4
+  parent = "Services"
+
+  [[business]]
+  name = "Attributen delen"
+  url = "/business/services/sharing-attributes"
+  weight = 4
+  parent = "Services"
+
+[[business]]
+name = "Developers"
+url = "/business/developers"
+weight = 3
 
 [[business]]
 name = "Werken bij"
 url = "/business/carreer"
-weight = 3
+weight = 4
 
 # footer menu
 [[footer]]
