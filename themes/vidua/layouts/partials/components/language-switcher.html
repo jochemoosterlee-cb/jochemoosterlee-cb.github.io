@@ -7,7 +7,7 @@
 {{ $pageLink := replace (replace $context.RelPermalink (add $pageLang "/") "") $base.Path "/" }}
 
 {{ if $context.IsTranslated }}
-  <ul id="nav-menu" class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8">
+  <ul id="nav-menu" class="navbar-nav order-3 lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8">
     <li class="nav-item nav-dropdown group relative">
       <span class="nav-link inline-flex items-center uppercase">
         {{ $pageLang }}
@@ -16,7 +16,7 @@
             d="M10,15.5l5.7-5.7l-0.9-0.9L10,13.6L5.3,8.9L4.4,9.8L10,15.5z" />
         </svg>
       </span>
-      <ul class="nav-dropdown-list lg:group-hover:visible lg:group-hover:opacity-100">
+      <ul class="small-dropdown nav-dropdown-list lg:group-hover:visible lg:group-hover:opacity-100">
         {{ range $siteLanguages }}
           <li class="nav-dropdown-item">
             <a class="nav-dropdown-link uppercase" href="{{ replace (add .RelPermalink $pageLink) `//` `/` }}"> {{ .Language.LanguageName }} </a>

@@ -87,7 +87,6 @@
 .main-toggle {
   font-weight: 800;
   border-bottom: 1.5px solid;
-  // color: rgb(255, 151, 11) !important;
 }
 
 .logo-main-toggle > div {
@@ -110,4 +109,22 @@
 
 .logo-main-toggle #nav-menu {
   font-size: 0.8rem;
+}
+
+.small-dropdown {
+  min-width: auto;
+  position: absolute;
+}
+
+.pb-6 {
+  padding-bottom: 0;
+}
+
+.logo-main-toggle #nav-menu {
+    display: flex;
+}
+
+.logo-main-toggle .nav-link {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
