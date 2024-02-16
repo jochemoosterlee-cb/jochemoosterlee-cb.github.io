@@ -114,11 +114,6 @@ url = "about"
 weight = 1
 
 [[footer]]
-name = "Elementen"
-url = "elements"
-weight = 2
-
-[[footer]]
 name = "Privacy Policy"
 url = "privacy-policy"
-weight = 3
+weight = 2
