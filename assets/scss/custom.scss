@@ -162,3 +162,28 @@
     max-width: 1024px;
   }
 }
+
+.wrap {
+  display: flex;
+}
+
+.wrap-item {
+  flex: 1;
+}
+
+.two {
+  position: relative;
+}
+
+.two img {
+  border-radius: 32px 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

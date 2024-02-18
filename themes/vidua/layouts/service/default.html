@@ -3,17 +3,17 @@
   {{ range $i, $e:= .Params.services }}
     <section class="section-sm bg-non-gradient">
       <div class="container">
-        <div class="row items-center justify-between">
+        <div class="row justify-between wrap">
           <div
             class="mb:md-0 {{ if (modBool $i 2) }}
               md:order-2
-            {{ end }} md:col-5 mb-6">
+            {{ end }} md:col-5 mb-6 wrap-item two">
             {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
           </div>
           <div
             class="{{ if (modBool $i 2) }}
               md:order-1
-            {{ end }} md:col-7 lg:col-6">
+            {{ end }} md:col-7 lg:col-6 wrap-item one">
             <h3 class="font-thin mb-4">
               {{ .title | markdownify }}
             </h3>
