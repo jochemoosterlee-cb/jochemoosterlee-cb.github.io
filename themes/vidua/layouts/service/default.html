@@ -7,13 +7,13 @@
           <div
             class="mb:md-0 {{ if (modBool $i 2) }}
               md:order-2
-            {{ end }} md:col-5 mb-6 wrap-item two">
+            {{ end }} md:col-5 mb-6 img-wrap">
             {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
           </div>
           <div
             class="{{ if (modBool $i 2) }}
               md:order-1
-            {{ end }} md:col-7 lg:col-6 wrap-item one">
+            {{ end }} md:col-7 lg:col-6">
             <h3 class="font-thin mb-4">
               {{ .title | markdownify }}
             </h3>
