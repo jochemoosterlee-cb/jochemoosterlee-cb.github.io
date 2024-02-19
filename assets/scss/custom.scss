@@ -161,6 +161,7 @@
 
 .imgwrap {
   position: relative;
+  margin-bottom: 3rem;
 }
 
 @media (min-width: 768px) {
@@ -173,11 +174,12 @@
 .imgwrap img {
   position: relative;
   border-radius: 32px 0px;
-  height: 140px;
+  height: 180px;
   object-fit: cover;
   z-index: -5;
   right: 0%;
   top: 10%;
+  object-position: 0 5%;
 }
 
 @media (min-width: 768px) {
@@ -190,6 +192,7 @@
     transform: scale(1.4);
     right: 7%;
     top: 35%;
+    object-position: 0%;
   }
 }
 
