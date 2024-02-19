@@ -23,7 +23,7 @@
           
           <li class="nav-item">
             <a
-              class='nav-link {{ if or (and (strings.Contains $currentPage site.Params.choice_2_en) (or (eq .Name (strings.FirstUpper site.Params.choice_2_nl)) (eq .Name (strings.FirstUpper site.Params.choice_2_en))))
+              class='nav-link font-normal {{ if or (and (strings.Contains $currentPage site.Params.choice_2_en) (or (eq .Name (strings.FirstUpper site.Params.choice_2_nl)) (eq .Name (strings.FirstUpper site.Params.choice_2_en))))
                 (and (or (strings.Contains $currentPage site.Params.choice_1_en) (strings.Contains $currentPage "Page(/_index.md)")) (or (eq .Name (strings.FirstUpper site.Params.choice_1_nl)) (eq .Name (strings.FirstUpper site.Params.choice_1_en)))) }}main-toggle{{- end -}}'
               {{ if findRE `^http` .URL }}
                 target="_blank" rel="noopener"
@@ -80,12 +80,12 @@
         {{ $active := eq $menuURL $trimmedPageURL }}
         {{ $choiceHomeURL := print $pageURL site.Params.choice_1_en}}
         {{ if .HasChildren }}
-          <li class="nav-item nav-dropdown group relative {{ if $active }}active{{- end -}}">
+          <li class="nav-item nav-dropdown group relative {{ if $active }}active {{- end -}}">
             <span
-              class="nav-link {{ range .Children }}
+              class="nav-link font-normal {{ range .Children }}
                 {{ $childURL := .URL | absLangURL }}
                 {{ $active := strings.Contains $pageURL $childURL }}
-                {{ if $active }}active{{ end }}
+                {{ if $active }}active {{ end }}
               {{ end }} inline-flex items-center">
               {{ .Name }}
               <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
@@ -101,7 +101,7 @@
                 <li class="nav-dropdown-item">
                   <a
                     class="nav-dropdown-link {{ if $active }}
-                      active
+                      active 
                     {{- end -}}"
                     {{ if findRE `^http` .URL }}
                       target="_blank" rel="noopener"
@@ -123,7 +123,7 @@
         {{ else }}
           <li class="nav-item">
             <a
-              class="nav-link {{ if or ( eq $choiceHomeURL $menuURL ) $active }}active{{- end -}}"
+              class="nav-link font-normal {{ if or ( eq $choiceHomeURL $menuURL ) $active }}active {{- end -}}"
               {{ if findRE `^http` .URL }}
                 target="_blank" rel="noopener"
               {{ end }}
@@ -156,10 +156,10 @@
         {{ if .HasChildren }}
           <li class="nav-item nav-dropdown group relative">
             <span
-              class="nav-link {{ range .Children }}
+              class="nav-link font-normal {{ range .Children }}
                 {{ $childURL := .URL | absLangURL }}
                 {{ $active := strings.Contains $pageURL $childURL }}
-                {{ if $active }}active{{ end }}
+                {{ if $active }}active {{ end }}
               {{ end }} inline-flex items-center">
               {{ .Name }}
               <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
@@ -175,7 +175,7 @@
                 <li class="nav-dropdown-item">
                   <a
                     class="nav-dropdown-link {{ if $active }}
-                      active
+                      active 
                     {{- end -}}"
                     {{ if findRE `^http` .URL }}
                       target="_blank" rel="noopener"
@@ -197,7 +197,7 @@
         {{ else }}
           <li class="nav-item">
             <a
-              class="nav-link {{ if $active }}active{{- end -}}"
+              class="nav-link font-normal {{ if $active }}active {{- end -}}"
               {{ if findRE `^http` .URL }}
                 target="_blank" rel="noopener"
               {{ end }}

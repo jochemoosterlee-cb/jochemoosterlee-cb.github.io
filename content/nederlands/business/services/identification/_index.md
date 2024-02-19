@@ -10,8 +10,17 @@ draft: false
 services:
   - title: "Identificatie"
     incentive: "Efficiënt nieuwe klanten onboarden"
-    content: "U kunt het inschrijvingsproces van nieuwe klanten volledig automatiseren en digitaliseren. Leer uw klanten binnen enkele minuten kennen en creëer de ultieme eerste indruk."
+    content: "U kunt het inschrijvingsproces van nieuwe klanten volledig automatiseren en digitaliseren. Leer uw klanten binnen enkele minuten kennen en creëer de ultieme eerste indruk.<br> U kunt het inschrijvingsproces van nieuwe klanten volledig automatiseren en digitaliseren. Leer uw klanten binnen enkele minuten kennen en creëer de ultieme eerste indruk."
     image: "/images/identification.png"
+
+countries:
+  - title: "Ondertsteunde nationaliteiten"
+    content: "Vidua ondersteunt paspoorten en identiteitskaarten met een NFC-chip van de volgende nationaliteiten."
+    flags:
+    - country: "Netherlands"
+      flag: "nl"
+    - country: "Belgium"
+      flag: "be"
 
 characteristics:
   - title: "Eenvoudige \"Know Your Customer\""

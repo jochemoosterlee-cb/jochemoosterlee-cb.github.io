@@ -6,23 +6,15 @@
       <div class="container services">
         <div class="row justify-between wrap">
           <div
-            class="mb:md-0 {{ if (modBool $i 2) }}
-              md:order-2
-            {{ end }} md:col-5 mb-6 img-wrap">
-            {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
-          </div>
-          <div
-            class="{{ if (modBool $i 2) }}
-              md:order-1
-            {{ end }} md:col-7 lg:col-6">
-            <h4 class="mb-2 font-normal text-primary">
+            class="order-2 md:order-1 md:col-7 lg:col-6 textwrap">
+            <h4 class="mb-2 font-bold text-primary">
               {{ .title | markdownify }}
             </h4>
             <h3 class="mb-3">
               {{ .incentive | markdownify }}
             </h3>
             <p class="mb-8">
-              {{ .content | markdownify }}
+              {{ .content | markdownify}}
               <div>
                 {{ with .link }}
                   {{ if .enable }}
@@ -33,6 +25,11 @@
                 {{ end }}
               </div>
             </p>
+          </div>
+          
+          <div
+            class="order-1 mb:md-0 md:order-2 md:col-5 mb-6 imgwrap">
+            {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
           </div>
         </div>
       </div>
@@ -48,10 +45,12 @@
           <div class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-3">
             <div class="h-full rounded-2xl px-1 py-1 text-center">
               {{ partial "image" (dict "Src" .icon "Alt" "icon") }}
-              <h2 class="mb-6 text-xl font-semibold sm:text-2xl">
+              <h2 class="mb-4 text-xl font-semibold sm:text-2xl">
                 {{ .title | markdownify }}
               </h2>
-              {{ .text }}
+              <p>
+                {{ .text | emojify }}
+              </p>
             </div>
           </div>
         {{ end }}
