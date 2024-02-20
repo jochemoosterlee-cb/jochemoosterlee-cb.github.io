@@ -1,7 +1,6 @@
 {{ define "main" }}
   <!-- Services -->
   {{ range $i, $e:= .Params.services }}
-    {{/*  bg-non-gradient  */}}
     <section class="section-sm">
       <div class="container services">
         <div class="row justify-between wrap">
@@ -10,9 +9,9 @@
             <h4 class="mb-2 font-bold text-primary">
               {{ .title | markdownify }}
             </h4>
-            <h3 class="mb-3">
+            <h2 class="mb-3 text-xl font-semibold sm:text-2xl">
               {{ .incentive | markdownify }}
-            </h3>
+            </h2>
             <p class="mb-8">
               {{ .content | markdownify}}
               <div>
@@ -49,7 +48,7 @@
                 {{ .title | markdownify }}
               </h2>
               <p>
-                {{ .text | emojify }}
+                {{ .text | markdownify }}
               </p>
             </div>
           </div>
@@ -58,5 +57,41 @@
     </div>
   </section>
   <!-- /Characteristics -->
+
+  <!-- Countries -->
+  <section class="section-sm">
+    <div class="container countries">
+      <div class="row justify-evenly gy-4">
+        {{ range $i, $e:= .Params.countries }}
+          <div class="col-12">
+            <div class="h-full rounded-2xl px-1 py-1 text-center">
+              <h2 class="mb-4 text-xl font-semibold sm:text-2xl">
+                {{ .title | markdownify }}
+              </h2>
+              <p>
+                {{ .text | markdownify }}
+              </p>
+              <div class="container flags">
+                <div class="row justify-center">
+                  {{ range $i, $e:= .flags }}
+                    {{ $flagpath := printf ".svg" | printf "%s%s" .flag | printf "%s%s" "/images/flags/" | printf "%s" }}
+                    <div class="col-2 flag">
+                      <div class="h-full rounded-2xl px-1 py-1 text-center country">
+                        {{ partial "image" (dict "Src" $flagpath "Alt" "icon") }}
+                        <p>
+                          {{ .country | markdownify }}
+                        </p>
+                      </div>
+                    </div>
+                  {{ end }}
+                </div>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  <!-- /Countries -->
 
 {{ end }}

@@ -14,13 +14,19 @@ services:
     image: "/images/identification.png"
 
 countries:
-  - title: "Ondertsteunde nationaliteiten"
-    content: "Vidua ondersteunt paspoorten en identiteitskaarten met een NFC-chip van de volgende nationaliteiten."
+  - title: "Ondersteunde nationaliteiten"
+    text: "Vidua ondersteunt paspoorten en identiteitskaarten met een NFC-chip van de volgende nationaliteiten."
     flags:
-    - country: "Netherlands"
-      flag: "nl"
-    - country: "Belgium"
-      flag: "be"
+      - country: "Nederland"
+        flag: "nl"
+      - country: "[België]()"
+        flag: "be"
+      - country: "Denmark"
+        flag: "dk"
+      - country: "Ireland"
+        flag: "ie"
+      - country: "Germany"
+        flag: "de"
 
 characteristics:
   - title: "Eenvoudige \"Know Your Customer\""
