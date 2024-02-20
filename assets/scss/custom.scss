@@ -19,10 +19,13 @@
   border-left: 0;
   border-right: 0;
   border-bottom: 0;
-  box-shadow: 0px 5px 5px #00000010;
   background-color: rgba(255, 255, 255, 0.96);
   padding-top: 0px;
   padding-bottom: 0px;
+}
+
+html:not([data-scroll='0']) .header {
+  box-shadow: 0px 5px 5px #00000006;
 }
 
 .logo-light {
@@ -137,22 +140,13 @@
 @media (min-width: 1280px) {
 
   .container {
-    // max-width: 1280px;
     max-width: 1024px;
   }
 }
 
-// @media (min-width: 1536px) {
-
-//   .container {
-//     max-width: 1536px;
-//   }
-// }
-
 @media (min-width: 1536px) {
 
   .container {
-    // max-width: 1320px;
     max-width: 1024px;
   }
 }
@@ -188,12 +182,12 @@
 
   .imgwrap img {
     height: 100%;
-    width: 100%;
+    width: 110%;
     max-height: 80%;
-    max-width: 90%;
+    max-width: 110%;
     transform: scale(1.4);
-    right: 7%;
-    top: 35%;
+    right: 26%;
+    top: 32%;
     object-position: 50%;
   }
 }
@@ -201,10 +195,12 @@
 @media (min-width: 1024px) {
 
   .imgwrap img {
-    right: 20%;
-    width: 100%;
-    max-width: 100%;
+    right: 23%;
+    width: 106%;
+    max-width: 106%;
     object-position: 0%;
+    top: 35%;
+    right: 23%;
   }
 }
 
@@ -217,7 +213,14 @@
 @media (min-width: 768px) {
 
   .textwrap {
-    padding-right: 2rem;
+    padding: 1.5rem 2rem 0.5rem 2rem;
+    box-shadow: 3px 3px 8px #00000010;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:col-6.textwrap {
+    width: 56%;
   }
 }
 
@@ -232,3 +235,9 @@
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+@media (min-width: 1280px) {
+  .section-sm {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
