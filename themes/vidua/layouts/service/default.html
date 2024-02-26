@@ -5,10 +5,10 @@
   <div class="container services">
     <div class="row justify-between wrap">
       <div class="order-2 md:order-1 md:col-7 lg:col-6 textwrap">
-        <h4 class="mb-2 font-bold text-primary">
+        <h4 class="mb-2 font-bold text-primary font-primary">
           {{ .title | markdownify }}
         </h4>
-        <h2 class="mb-3 text-xl font-semibold sm:text-2xl">
+        <h2 class="mb-3 text-xl font-semibold font-primary sm:text-2xl">
           {{ .incentive | markdownify }}
         </h2>
         <p class="mb-8">
@@ -41,7 +41,7 @@
       <div class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-3">
         <div class="h-full rounded-2xl px-1 py-1 text-center">
           {{ partial "image" (dict "Src" .icon "Alt" "icon") }}
-          <h2 class="mb-4 text-xl font-semibold sm:text-2xl">
+          <h2 class="mb-4 text-xl font-semibold font-primary sm:text-2xl">
             {{ .title | markdownify }}
           </h2>
           <p>
@@ -62,7 +62,7 @@
       {{ range $i, $e:= .Params.countries }}
       <div class="col-12">
         <div class="h-full rounded-2xl px-1 py-1 text-center">
-          <h2 class="mb-4 text-xl font-semibold sm:text-2xl">
+          <h2 class="mb-4 text-xl font-semibold font-primary sm:text-2xl">
             {{ .title | markdownify }}
           </h2>
           <p>
