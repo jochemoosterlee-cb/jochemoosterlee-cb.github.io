@@ -13,6 +13,7 @@ services:
     content: "U kunt het inschrijvingsproces van nieuwe klanten volledig automatiseren en digitaliseren. Leer uw klanten binnen enkele minuten kennen en creëer de ultieme eerste indruk.<br> U kunt het inschrijvingsproces van nieuwe klanten volledig automatiseren en digitaliseren. Leer uw klanten binnen enkele minuten kennen en creëer de ultieme eerste indruk."
     image: "/images/identification.png"
 
+# Supported countries
 countries:
   - title: "Ondersteunde nationaliteiten"
     text: "Vidua ondersteunt paspoorten en identiteitskaarten met een NFC-chip van de volgende nationaliteiten."
@@ -34,6 +35,7 @@ countries:
         comment: ""
         flag: "de"
 
+# Characteristics
 characteristics:
   - title: "Eenvoudige \"Know Your Customer\""
     text: "Identificeer nieuwe klanten met slechts één klik. Door minder tijd te besteden aan het invullen van formulieren of scannen van ID-documenten, creëert u een goede eerste indruk en is de kans kleiner dat mensen afhaken bij het worden van uw klant."

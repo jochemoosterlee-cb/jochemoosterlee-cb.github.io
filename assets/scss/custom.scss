@@ -228,7 +228,7 @@ select {
 @media (min-width: 768px) {
   .textwrap {
     padding: 1.5rem 2rem 0.5rem 2rem;
-    box-shadow: 3px 3px 8px #00000010;
+    box-shadow: 3px 3px 8px #0000001a;
   }
 }
 
@@ -283,7 +283,7 @@ select {
 .countries > .row {
   border-radius: 32px 0px;
   background-color: #fff;
-  box-shadow: 0px 0px 10px #00000010;
+  box-shadow: 0px 0px 10px #0000001a;
 }
 
 .flags {
@@ -320,7 +320,6 @@ select {
 
 .comment {
   justify-content: space-between;
-  height: 1rem;
 }
 
 .country-comment {
@@ -330,4 +329,59 @@ select {
 
 .img-wrapper {
   color: black;
+}
+
+@media (min-width: 1024px) {
+  .lg\:columns-2 {
+    columns: 2;
+    column-gap: 2.5rem;
+  }
+}
+
+.box-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .box-bg {
+    width: 250px;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .sm\:transform {
+    transform: rotate(-90deg);
+  }
+}
+
+.colored-box-bg > div:nth-child(4n + 1) .box-bg {
+  background-color: #FFE6E1;
+}
+
+.colored-box-bg > div:nth-child(4n + 2) .box-bg {
+  background-color: #DEEFEA;
+}
+
+.colored-box-bg > div:nth-child(4n + 3) .box-bg {
+  background-color: #FFF4E4;
+}
+
+.colored-box-bg > div:nth-child(4n + 4) .box-bg {
+  background-color: #E5E9F3;
+}
+
+.testimonials .mb-10 {
+  background-color: #fff;
+  box-shadow: 0px 0px 10px #0000001a;
+}
+
+.testimonials .mb-10:nth-child(2),
+.testimonials .mb-10:nth-child(2) > div > .box-bg {
+  border-radius: 32px 0px 0px 0px;
+}
+
+.testimonials .mb-10:last-child {
+  border-radius: 0px 0px 32px 0px;
 }

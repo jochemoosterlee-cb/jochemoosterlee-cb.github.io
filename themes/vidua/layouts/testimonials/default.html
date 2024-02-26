@@ -1,0 +1,61 @@
+{{ define "main" }}
+
+<!-- Testimonials -->
+<section class="section relative z-20 overflow-hidden testimonials">
+  <div class="container relative">
+    <div class="colored-box-bg lg:columns-2">
+
+      {{ range $i, $e:= .Params.testimonials }}
+
+      <div class="mb-16">
+        <div class= "py-2 pl-6">
+          <h2 class="font-primary font-semibold">
+            {{ .intro | markdownify }}
+          </h2>
+        </div>
+      </div>
+
+      {{ range $i, $e:= .testimonials }}
+
+      {{ $baseimgpath :=  "/images/testimonials/" }}
+      {{ $companylogopath := printf "%s" .companylogo | printf "%s%s" $baseimgpath | printf "%s" }}
+      {{ $customerimgpath := printf "%s" .customerimg | printf "%s%s" $baseimgpath | printf "%s" }}
+
+      <div class="mb-10">
+        <div class="mb-6 flex flex-col overflow-hidden last-of-type:mb-0 sm:flex-row sm:border-0">
+          <div class="box-bg">
+            {{ partial "image" (dict "Src" $companylogopath "Class" "!max-w-[140px] sm:min-w-[40px] sm:-rotate-90 sm:transform img" "Alt" "logo") }}
+          </div>
+          <div class="px-6 py-12">
+            <h3 class="font-primary mb-5 text-xl font-semibold sm:text-2xl ">
+              {{ .title | markdownify }}
+            </h3>
+            <p class="mb-6 sm:text-lg">
+              {{ .text | markdownify }}
+            </p>
+            <div class="flex items-center gap-4">
+              {{ partial "image" (dict "Src" $customerimgpath "Class" "rounded-full h-[70px] w-[70px] object-cover img" "Alt" "logo") }}
+              <div class="items-start rounded-full">
+                <div class="flex flex-col justify-center">
+                  <h4 class="font-primary mb-1 text-lg">
+                    {{ .name | markdownify }}
+                  </h4>
+                  <p>
+                    {{ .role | markdownify }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{ end }}
+      {{ end }}
+
+    </div>
+  </div>
+</section>
+<!-- /Testimonials -->
+
+{{ end }}
