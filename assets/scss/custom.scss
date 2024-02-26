@@ -2,9 +2,9 @@
   border-radius: 1.6rem 0px;
   padding: 1.2rem 2.4rem;
   background-size: 202% 100%;
-  background-image: linear-gradient(to right ,rgb(255, 151, 110) 50%,rgb(0, 95, 156) 50%, rgb(169, 183, 215) 100%);
+  background-image: linear-gradient(to right, rgb(255, 151, 110) 50%, rgb(0, 95, 156) 50%, rgb(169, 183, 215) 100%);
   transition: background-position 200ms;
-  border-color: rgb(255, 151, 110)
+  border-color: rgb(255, 151, 110);
 }
 
 .btn:hover {
@@ -15,7 +15,14 @@
 .header {
   border: 8px solid;
   border-image-slice: 1;
-  border-image-source: linear-gradient(90deg, rgb(235, 50, 50) 0%, rgb(255, 151, 110) 25.52%, rgb(231, 176, 0) 51.04%, rgb(111, 172, 157) 76.56%, rgb(0, 95, 156) 100%);
+  border-image-source: linear-gradient(
+    90deg,
+    rgb(235, 50, 50) 0%,
+    rgb(255, 151, 110) 25.52%,
+    rgb(231, 176, 0) 51.04%,
+    rgb(111, 172, 157) 76.56%,
+    rgb(0, 95, 156) 100%
+  );
   border-left: 0;
   border-right: 0;
   border-bottom: 0;
@@ -24,7 +31,7 @@
   padding-bottom: 0px;
 }
 
-html:not([data-scroll='0']) .header {
+html:not([data-scroll="0"]) .header {
   box-shadow: 0px 5px 5px #00000005;
 }
 
@@ -32,7 +39,22 @@ html:not([data-scroll='0']) .header {
   height: 32px;
 }
 
-[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select {
+[type="text"],
+input:where(:not([type])),
+[type="email"],
+[type="url"],
+[type="password"],
+[type="number"],
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
   border-width: 0px;
   font-weight: 300;
 }
@@ -42,7 +64,7 @@ html:not([data-scroll='0']) .header {
 }
 
 .link,
-.accordion-content p>a {
+.accordion-content p > a {
   color: rgb(0, 95, 156);
   text-decoration: underline;
 }
@@ -57,7 +79,6 @@ html:not([data-scroll='0']) .header {
 }
 
 @media (min-width: 1024px) {
-
   .lg\:\!max-w-\[max\] {
     max-width: 100% !important;
   }
@@ -118,7 +139,7 @@ html:not([data-scroll='0']) .header {
 }
 
 .logo-main-toggle #nav-menu {
-    display: flex;
+  display: flex;
 }
 
 .logo-main-toggle .nav-link {
@@ -131,21 +152,18 @@ html:not([data-scroll='0']) .header {
 }
 
 @media (min-width: 1024px) {
-
   .container {
     max-width: 1024px;
   }
 }
 
 @media (min-width: 1280px) {
-
   .container {
     max-width: 1024px;
   }
 }
 
 @media (min-width: 1536px) {
-
   .container {
     max-width: 1024px;
   }
@@ -161,7 +179,6 @@ html:not([data-scroll='0']) .header {
 }
 
 @media (min-width: 768px) {
-
   .imgwrap {
     margin-bottom: 1.5rem;
   }
@@ -179,7 +196,6 @@ html:not([data-scroll='0']) .header {
 }
 
 @media (min-width: 768px) {
-
   .imgwrap img {
     height: 100%;
     width: 110%;
@@ -193,7 +209,6 @@ html:not([data-scroll='0']) .header {
 }
 
 @media (min-width: 1024px) {
-
   .imgwrap img {
     right: 23%;
     width: 106%;
@@ -211,7 +226,6 @@ html:not([data-scroll='0']) .header {
 }
 
 @media (min-width: 768px) {
-
   .textwrap {
     padding: 1.5rem 2rem 0.5rem 2rem;
     box-shadow: 3px 3px 8px #00000010;
@@ -239,7 +253,6 @@ html:not([data-scroll='0']) .header {
   }
 }
 
-
 .lg\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -255,23 +268,32 @@ html:not([data-scroll='0']) .header {
 
 .flag {
   width: 130px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .flag img {
-  max-width: 50px;
-  max-height: 33.33px;
+  // max-width: 50px;
+  // max-height: 33.33px;
+  max-height: 25px;
   margin: 1rem auto 1rem auto;
 }
 
 .countries > .row {
-  box-shadow: 3px 3px 8px #00000010;
   border-radius: 32px 0px;
   background-color: #fff;
-  box-shadow: 3px 3px 8px #00000010;
+  box-shadow: 0px 0px 10px #00000010;
 }
 
 .flags {
   padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.footnote {
+  color: #ccc;
+  font-size: 0.7rem;
   padding-bottom: 2rem;
 }
 
@@ -283,11 +305,29 @@ html:not([data-scroll='0']) .header {
   text-decoration: underline;
 }
 
-.country {
+.country,
+.comment {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: nowrap;
+}
+
+.country {
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.comment {
   justify-content: space-between;
-  padding-bottom: 1rem;
+  height: 1rem;
+}
+
+.country-comment {
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+.img-wrapper {
+  color: black;
 }
