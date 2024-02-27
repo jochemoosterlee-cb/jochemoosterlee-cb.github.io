@@ -24,10 +24,8 @@
 {{ $scriptsLazy = $scriptsLazy | resources.Concat "js/script-lazy.js" }}
 
 {{ if hugo.IsProduction }}
-  {{/*  {{ $scripts = $scripts | minify | fingerprint }}  */}}
-  {{/*  {{ $scriptsLazy = $scriptsLazy | minify | fingerprint }}  */}}
-  {{ $scripts = $scripts | fingerprint }}
-  {{ $scriptsLazy = $scriptsLazy | fingerprint }}
+  {{ $scripts = $scripts | minify | fingerprint }}
+  {{ $scriptsLazy = $scriptsLazy | minify | fingerprint }}
 {{ end }}
 
 {{/* scripts */}}
