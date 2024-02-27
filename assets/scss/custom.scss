@@ -356,11 +356,13 @@ select {
   }
 }
 
-.stack-rounded-tl {
+.rounded-tl {
+  /* purgecss ignore current */
   border-top-left-radius: 32px;
 }
 
-.stack-rounded-br {
+.rounded-br {
+  /* purgecss ignore current */
   border-bottom-right-radius: 32px;
 }
 
