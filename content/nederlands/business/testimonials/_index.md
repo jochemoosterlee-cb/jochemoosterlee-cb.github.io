@@ -24,7 +24,7 @@ testimonials:
         customerimg: "customer-2.webp"
       - title: "Empowering Businesses with Cutting-Edge Solutions"
         text: "elementum sed sit amet. Nulla port titor accumsan tincidunt. Proin eget tortor risus. Vestibulum ac diam sit amet quam"
-        name: "VP growth at Facebook"
+        name: "Savannah Nguyen"
         role: "VP growth at Facebook"
         companylogo: "logo-3.webp"
         customerimg: "customer-3.webp"

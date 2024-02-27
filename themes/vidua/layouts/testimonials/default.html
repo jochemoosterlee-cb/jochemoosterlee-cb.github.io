@@ -30,17 +30,17 @@
             {{ partial "image" (dict "Src" $companylogopath "Class" "!max-w-[140px] sm:min-w-[40px] sm:-rotate-90 sm:transform img" "Alt" "logo") }}
           </div>
           <div class="px-6 py-12">
-            <h3 class="font-primary mb-5 text-xl font-semibold sm:text-2xl ">
+            <h3 class="mb-3 text-xl font-semibold font-primary sm:text-2xl">
               {{ .title | markdownify }}
             </h3>
-            <p class="mb-6 sm:text-lg">
+            <p class="mb-6">
               {{ .text | markdownify }}
             </p>
             <div class="flex items-center gap-4">
               {{ partial "image" (dict "Src" $customerimgpath "Class" "rounded-full h-[70px] w-[70px] object-cover img" "Alt" "logo") }}
               <div class="items-start rounded-full">
                 <div class="flex flex-col justify-center">
-                  <h4 class="font-primary mb-1">
+                  <h4 class="text-xl font-semibold font-primary sm:text-2xl">
                     {{ .name | markdownify }}
                   </h4>
                   <p>

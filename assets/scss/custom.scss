@@ -336,7 +336,6 @@ select {
     columns: 2;
     column-gap: 2.5rem;
   }
-
 }
 
 .box-bg {
@@ -361,7 +360,7 @@ select {
   border-top-left-radius: 32px;
 }
 
-.rounded-br{
+.rounded-br {
   border-bottom-right-radius: 32px;
 }
 
@@ -376,4 +375,16 @@ select {
 
 .testimonials > div > div > :first-child {
   border-left: solid 2px rgb(255, 151, 110);
+}
+
+@media (max-width: 1023px) {
+  .testimonial:nth-child(n+3):not(:last-child) {
+    border-radius: 0 !important;
+  }
+}
+
+@media (max-width: 539px) {
+  .box-bg {
+    min-height: 75px;
+  }
 }
