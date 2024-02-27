@@ -378,7 +378,8 @@ select {
 }
 
 @media (max-width: 1023px) {
-  .testimonial:nth-child(n+3):not(:last-child) {
+  .testimonial:nth-child(n+3):not(:last-child),
+  .testimonial:nth-child(n+3):not(:last-child) > div > div:first-child {
     border-radius: 0 !important;
   }
 }
