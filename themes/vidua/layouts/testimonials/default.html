@@ -60,24 +60,22 @@
   </div>
 </section>
 
+<script>
+  var testimonials = document.getElementById('testimonials');
+  var testimonial = testimonials.getElementsByClassName('testimonial');
+  var testimonialLength = Math.floor(testimonial.length / 2);
+  var box1 = testimonial[0].getElementsByTagName('div');
+  var box2 = testimonial[testimonialLength].getElementsByTagName('div');
+
+  testimonial[0].classList.add('rounded-tl');
+  box1[0].getElementsByTagName('div')[0].classList.add('rounded-tl');
+  testimonial[testimonialLength].classList.add('rounded-tl');
+  box2[0].getElementsByTagName('div')[0].classList.add('rounded-tl');
+
+  testimonial[testimonialLength - 1].classList.add('rounded-br');
+  testimonial[testimonial.length -1].classList.add('rounded-br');
+</script>
+
 <!-- /Testimonials -->
 
 {{ end }}
-
-{{- define "page-script" -}}
-  <script>
-    var testimonials = document.getElementById('testimonials');
-    var testimonial = testimonials.getElementsByClassName('testimonial');
-    var testimonialLength = Math.floor(testimonial.length / 2);
-    var box1 = testimonial[0].getElementsByTagName('div');
-    var box2 = testimonial[testimonialLength].getElementsByTagName('div');
-
-    testimonial[0].classList.add('rounded-tl');
-    box1[0].getElementsByTagName('div')[0].classList.add('rounded-tl');
-    testimonial[testimonialLength].classList.add('rounded-tl');
-    box2[0].getElementsByTagName('div')[0].classList.add('rounded-tl');
-
-    testimonial[testimonialLength - 1].classList.add('rounded-br');
-    testimonial[testimonial.length - 1].classList.add('rounded-br');
-  </script>
-{{- end -}}
