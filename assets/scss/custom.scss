@@ -338,14 +338,20 @@ select {
   }
 }
 
-.box-bg {
+.testimonials .box-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.usecases .box-logo {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 @media (min-width: 768px) {
-  .box-bg {
+  .testimonials .box-logo {
     width: 250px;
     padding-top: 7rem;
     padding-bottom: 7rem;
@@ -353,6 +359,11 @@ select {
 
   .sm\:transform {
     transform: rotate(-90deg);
+  }
+}
+@media (min-width: 540px) {
+  .usecases .box-logo {
+    width: 60px;
   }
 }
 
@@ -366,12 +377,26 @@ select {
   border-bottom-right-radius: 32px;
 }
 
-.testimonials .testimonial {
-  background-color: #fff;
-  box-shadow: 0px 0px 10px #0000001a;
+@media (min-width: 540px) {
+  .testimonials .testimonial {
+    background-color: #fff !important;
+    box-shadow: 0px 0px 10px #0000001a;
+  }
 }
 
-.testimonial > div > div:first-child {
+.testimonials .testimonial {
+  background-color: #fdfdfd;
+}
+
+.testimonials .testimonial:target {
+  border: solid 2px rgb(255, 151, 110);
+  animation: blink 1.5s;
+  animation-iteration-count: 2;
+}
+
+@keyframes blink { 50% { border-color:#fff ; }  }
+
+.testimonials .testimonial > div > div:first-child {
   background-color: #00000005;
 }
 
@@ -387,7 +412,13 @@ select {
 }
 
 @media (max-width: 539px) {
-  .box-bg {
+  .testimonials .box-logo {
     min-height: 75px;
   }
+}
+
+.usecases .testimonial {
+  background-color: #fff;
+  border-left: solid 2px rgb(255, 151, 110);
+  border-right: solid 2px rgb(255, 151, 110);
 }

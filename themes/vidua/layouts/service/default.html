@@ -1,4 +1,82 @@
 {{ define "main" }}
+
+<!-- Usecases -->
+
+<section id="usecases" class="section-sm usecases">
+  <div class="container relative">
+
+    {{ range $i, $e:= .Params.usecases }}
+
+    <div class="row justify-between wrap mb-8 md:mb-28">
+      <div class="order-2 md:order-1 md:col-7 lg:col-6 textwrap">
+        <h4 class="mb-2 font-bold text-primary font-primary">
+          {{ .title | markdownify }}
+        </h4>
+        <h2 class="mb-3 text-xl font-semibold font-primary sm:text-2xl">
+          {{ .incentive | markdownify }}
+        </h2>
+        <p class="mb-8">
+          {{ .content | markdownify}}
+        <div>
+          {{ with .link }}
+          {{ if .enable }}
+          <a class="mb-8 text-lg link" href="{{ .link | absURL }}">
+            {{ .label }}
+          </a>
+          {{ end }}
+          {{ end }}
+        </div>
+        </p>
+      </div>
+      <div class="order-1 mb:md-0 md:order-2 md:col-5 mb-6 imgwrap">
+        {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
+      </div>
+    </div>
+
+    {{ range $i, $e:= .testimonial }}
+
+    {{ $baseimgpath := "/images/testimonials/" }}
+    {{ $companylogopath := printf "%s" .companylogo | printf "%s%s" $baseimgpath | printf "%s" }}
+    {{ $customerimgpath := printf "%s" .customerimg | printf "%s%s" $baseimgpath | printf "%s" }}
+
+    <a href="/business/testimonials/#{{ .id }}">
+      <div class="mb-10 testimonial md:row lg:mr-64">
+        <div class="mb-6 flex flex-row overflow-hidden last-of-type:mb-0 sm:border-0">
+          <div class="box-logo">
+            {{ partial "image" (dict "Src" $companylogopath "Class" "!max-w-[100px] sm:min-w-[100px] -rotate-90 transform img" "Alt" "logo") }}
+          </div>
+          <div class="px-6">
+            <h3 class="mb-3 text-xl font-semibold font-primary sm:text-2xl">
+              {{ .title | markdownify }}
+            </h3>
+            {{/*  <p class="mb-6">
+              {{ .text | markdownify }}
+            </p>  */}}
+            <div class="flex items-center gap-4">
+              {{ partial "image" (dict "Src" $customerimgpath "Class" "rounded-full h-[70px] w-[70px] object-cover img" "Alt" "logo") }}
+              <div class="items-start rounded-full">
+                <div class="flex flex-col justify-center">
+                  <h4 class="text-xl font-semibold font-primary sm:text-2xl">
+                    {{ .name | markdownify }}
+                  </h4>
+                  <p>
+                    {{ .role | markdownify }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    {{ end }}
+
+
+    {{ end }}
+  </div>
+</section>
+
 <!-- Services -->
 {{ range $i, $e:= .Params.services }}
 <section class="section-sm">
