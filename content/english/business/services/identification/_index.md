@@ -1,8 +1,6 @@
 ---
 title: "Identification"
 meta_title: ""
-type: "service"
-layout: "default"
 description: ""
 draft: false
 

@@ -1,25 +1,8 @@
 ---
 title: "Identificatie"
 meta_title: ""
-type: "service"
-layout: "default"
 description: ""
 draft: false
-
-# Use cases
-usecases:
-  - title: "Integreer met Vidua"
-    incentive: "Gebruiksscenario 1"
-    content: "Behandelt uw bedrijf een veelheid aan documenten, variërend van contracten en overeenkomsten tot regelgevende indieningen. De integratie van Vidua's Gekwalificeerde Ondertekeningsservice stelt uw gebruikers in staat om documenten digitaal te ondertekenen met gekwalificeerde elektronische handtekeningen, waarmee de wettelijke gelijkwaardigheid en naleving van branchenormen worden versterkt."
-    image: "/images/business.jpg"
-    testimonial:
-      - title: "Efficiënte ervaring met uitstekende klantenservice"
-        text: "elementum sed sit amet. Nulla port titor accumsan tincidunt. Proin eget tortor risus. Vestibulum ac diam sit amet quam"
-        name: "Paul Staal"
-        role: "CJE bij ING"
-        companylogo: "ing-logo.svg"
-        customerimg: "paul-staal.jpg"
-        id: "paul-staal"
 
 # Services
 services:
@@ -27,28 +10,6 @@ services:
     incentive: "Efficiënt nieuwe klanten onboarden"
     content: "U kunt het inschrijvingsproces van nieuwe klanten volledig automatiseren en digitaliseren. Leer uw klanten binnen enkele minuten kennen en creëer de ultieme eerste indruk.<br> U kunt het inschrijvingsproces van nieuwe klanten volledig automatiseren en digitaliseren. Leer uw klanten binnen enkele minuten kennen en creëer de ultieme eerste indruk."
     image: "/images/identification.png"
-
-# Supported countries
-countries:
-  - title: "Ondersteunde nationaliteiten"
-    text: "Vidua ondersteunt paspoorten en identiteitskaarten met een NFC-chip van de volgende nationaliteiten."
-    footnote: \* Vind gedetailleerde informatie over de specifieke documentmodellen door op het land te klikken.
-    flags:
-      - country: "Nederland"
-        comment: ""
-        flag: "nl"
-      - country: "[België]()*"
-        comment: "enkel paspoorten"
-        flag: "be"
-      - country: "Denmark"
-        comment: ""
-        flag: "dk"
-      - country: "Ireland"
-        comment: ""
-        flag: "ie"
-      - country: "Germany"
-        comment: ""
-        flag: "de"
 
 # Characteristics
 characteristics:

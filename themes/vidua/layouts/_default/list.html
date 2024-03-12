@@ -1,18 +1,164 @@
 {{ define "main" }}
   {{/*  {{ partial "page-header" . }}  */}}
-  
 
-  <section class="section">
-    <div class="container">
-      <ul class="text-center">
-        {{ range .RegularPages }}
-          <li class="m-3">
-            <a href="{{ .Permalink }}" class="text-dark  block text-xl">
-              {{ .Title }}
-            </a>
-          </li>
-        {{ end }}
-      </ul>
+  <!-- Usecases -->
+  {{ range $i, $e:= .Params.usecases }}
+  <section id="usecases" class="section-sm usecases">
+    <div class="container relative">
+      <div class="usecase-container">
+        <div class="row justify-between wrap mb-8 md:mb-28">
+          <div class="order-2 md:order-1 md:col-7 lg:col-6 textwrap">
+            <h4 class="mb-2 font-bold text-primary font-primary">
+              {{ .title | markdownify }}
+            </h4>
+            <h2 class="mb-3 text-xl font-semibold font-primary sm:text-2xl">
+              {{ .incentive | markdownify }}
+            </h2>
+            <p class="mb-8">
+              {{ .content | markdownify}}
+            <div>
+              {{ with .link }}
+              {{ if .enable }}
+              <a class="mb-8 text-lg link" href="{{ .link | absURL }}">
+                {{ .label }}
+              </a>
+              {{ end }}
+              {{ end }}
+            </div>
+          </p>
+        </div>
+        <div class="order-1 mb:md-0 md:order-2 md:col-5 mb-6 imgwrap">
+          {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
+        </div>
+      </div>
+      {{ range $i, $e:= .testimonial }}
+      {{ $baseimgpath := "/images/testimonials/" }}
+      {{ $companylogopath := printf "%s" .companylogo | printf "%s%s" $baseimgpath | printf "%s" }}
+      {{ $customerimgpath := printf "%s" .customerimg | printf "%s%s" $baseimgpath | printf "%s" }}
+      <a href="/business/testimonials/#{{ .id }}">
+        <div class="mb-10 testimonial">
+          <div class="mb-6 flex text-center justify-center items-center flex-col overflow-hidden last-of-type:mb-0 sm:border-0">
+            <h3 class="mb-3 text-2xl font-normal font-primary">
+              <div class="quote">
+                {{ .title | markdownify }}
+              </div>
+            </h3>
+            <p class="text-base font-semibold text-primary">{{ .name | markdownify }}</p>
+            <p class="text-xs font-semibold">{{ .role | markdownify }}</p>
+          </div>
+        </div>
+      </a>
+      {{ end }}
     </div>
   </section>
+  {{ end }}
+
+  <!-- Services -->
+  {{ range $i, $e:= .Params.services }}
+  <section class="section-sm">
+    <div class="container services">
+      <div class="row justify-between wrap">
+        <div class="order-2 md:order-1 md:col-7 lg:col-6 textwrap">
+          <h4 class="mb-2 font-bold text-primary font-primary">
+            {{ .title | markdownify }}
+          </h4>
+          <h2 class="mb-3 text-xl font-semibold font-primary sm:text-2xl">
+            {{ .incentive | markdownify }}
+          </h2>
+          <p class="mb-8">
+            {{ .content | markdownify}}
+          <div>
+            {{ with .link }}
+            {{ if .enable }}
+            <a class="mb-8 text-lg link" href="{{ .link | absURL }}">
+              {{ .label }}
+            </a>
+            {{ end }}
+            {{ end }}
+          </div>
+          </p>
+        </div>
+        <div class="order-1 mb:md-0 md:order-2 md:col-5 mb-6 imgwrap">
+          {{ partial "image" (dict "Src" .image "Alt" "feature image") }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+  <!-- /Services -->
+
+  <!-- Characteristics -->
+  {{ if .Params.characteristics }}
+  <section class="section-sm">
+    <div class="container characteristics">
+      <div class="row justify-evenly gy-4">
+        {{ range $i, $e:= .Params.characteristics }}
+        <div class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-3">
+          <div class="h-full rounded-2xl px-1 py-1 text-center">
+            {{ partial "image" (dict "Src" .icon "Alt" "icon") }}
+            <h2 class="mb-4 text-xl font-semibold font-primary sm:text-2xl">
+              {{ .title | markdownify }}
+            </h2>
+            <p>
+              {{ .text | markdownify }}
+            </p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+  <!-- /Characteristics -->
+
+  <!-- Countries -->
+  {{ if .Params.countries }}
+  <section class="section-sm">
+    <div class="container countries">
+      <div class="row justify-evenly gy-4">
+        {{ range $i, $e:= .Params.countries }}
+        <div class="col-12">
+          <div class="h-full rounded-2xl px-1 py-1 text-center">
+            <h2 class="mb-4 text-xl font-semibold font-primary sm:text-2xl">
+              {{ .title | markdownify }}
+            </h2>
+            <p>
+              {{ .text | markdownify }}
+            </p>
+            <div class="container flags">
+              <div class="row justify-center">
+                {{ range $i, $e:= .flags }}
+                {{ $flagpath := printf ".svg" | printf "%s%s" .flag | printf "%s%s" "/images/flags/" | printf "%s" }}
+                <div class="col-2 flag">
+                  <div class="px-1 text-center country">
+                    {{ partial "image" (dict "Src" $flagpath "Alt" "icon") }}
+                    <div class="country-name">
+                      <p>
+                        {{ .country | markdownify }}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="px-1 text-center comment">
+                    <div>
+                      <p class="country-comment">
+                        {{ .comment | markdownify }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {{ end }}
+              </div>
+            </div>
+            <div class="footnote">
+              {{ .footnote | markdownify }}
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+  <!-- /Countries -->
+ 
 {{ end }}

@@ -4,9 +4,7 @@
 <section id="testimonials" class="section relative z-20 overflow-hidden testimonials">
   <div class="container relative">
     <div class="lg:columns-2">
-
       {{ range $i, $e:= .Params.testimonials }}
-
       <div class="mb-16">
         <div class="py-2 pl-6">
           <h2 class="text-xl font-semibold font-primary sm:text-2xl">
@@ -17,21 +15,18 @@
           </p>
         </div>
       </div>
-
       {{ range $i, $e:= .testimonials }}
-
       {{ $baseimgpath := "/images/testimonials/" }}
       {{ $companylogopath := printf "%s" .companylogo | printf "%s%s" $baseimgpath | printf "%s" }}
       {{ $customerimgpath := printf "%s" .customerimg | printf "%s%s" $baseimgpath | printf "%s" }}
-
       <div id="{{ .id }}" class="mb-10 testimonial">
         <div class="mb-6 flex flex-col overflow-hidden last-of-type:mb-0 sm:flex-row sm:border-0">
           <div class="box-logo">
             {{ partial "image" (dict "Src" $companylogopath "Class" "!max-w-[140px] sm:min-w-[40px] sm:-rotate-90 sm:transform img" "Alt" "logo") }}
           </div>
-          <div class="px-6 py-12">
+          <div class="px-6 py-8">
             <h3 class="mb-3 text-xl font-semibold font-primary sm:text-2xl">
-              {{ .title | markdownify }}
+              <span class="quote">{{ .title | markdownify }}</span>
             </h3>
             <p class="mb-6">
               {{ .text | markdownify }}
@@ -52,13 +47,12 @@
           </div>
         </div>
       </div>
-
       {{ end }}
       {{ end }}
-
     </div>
   </div>
 </section>
+<!-- /Testimonials -->
 
 <script>
   var testimonials = document.getElementById('testimonials');
@@ -80,14 +74,11 @@
         if (window.location.hash) {
             var targetElement = document.querySelector(window.location.hash);
             if (targetElement) {
-                // Adjust the scroll position, considering the fixed header
                 window.scrollTo(0, targetElement.offsetTop);
             }
         }
     }, 0);
   });
 </script>
-
-<!-- /Testimonials -->
 
 {{ end }}
