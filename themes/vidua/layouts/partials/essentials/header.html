@@ -213,6 +213,18 @@
           </li>
         {{ end }}
       {{ end }}
+      
+      <!-- navigation btn -->
+      {{ if site.Params.navigation_button.enable }}
+      <li class="nav-item nav-dropdown group relative">
+        <span class="nav-link font-normal inline-flex items-center" style="color: #ff976e; border: solid 2px #ff976e; border-radius: 16px;">
+      <a
+          href="{{ site.Params.navigation_button.link | relLangURL }}" class="" >
+          {{ site.Params.navigation_button.label }}
+        </a>
+        </span>
+      </li>
+      {{ end }}
     </ul>
   {{ end }}
 

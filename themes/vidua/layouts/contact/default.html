@@ -3,13 +3,14 @@
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      <div class="text-black md:col-6 px-8 py-8 flex flex-col justify-between" style="background-color: rgba(255, 151, 110, 0.1); border-radius:32px 0 0 0;">
+      <div class="text-black md:col-4 px-8 py-8 flex flex-col justify-between" style="background-color: rgba(255, 151, 110, 0.1); border-radius:32px 0 0 0;">
         <div>
-          <h2 class="text-black text-xl font-semibold font-primary sm:text-2xl">
-            Neem contact met ons op
+          <h2 class="text-black text-xl font-semibold font-primary sm:text-2xl mb-4">
+            Neem contact met<br>
+            ons op
           </h2>
           <p>
-            Bla bla bla bla
+            Ons team staat klaar om u te helpen met al uw vragen. Vul gewoon het formulier in en we nemen snel contact met u op.
           </p>
         </div>
         <div class="mb-8">
@@ -24,30 +25,41 @@
             <p class="text-black font-bold font-primary">
               Werken bij Vidua?
             </p>
-            <p class="text-sm" >
-              Bekijk <a style="text-decoration: underline;" href=".">Werken bij</a> of stuur een email naar <a style="text-decoration: underline;" href="mailto:carreers@vidua.nl">carreers@vidua.nl</a>
+            <p class="text-sm">
+              Bekijk de <a style="text-decoration: underline;" href=".">werken bij</a> pagina of stuur een email naar <a style="text-decoration: underline;" href="mailto:carreers@vidua.nl">carreers@vidua.nl</a>
             </p>
           </div>
         </div>
       </div>
-      <div class="md:col-6 px-12 py-8 mx-auto" style="background-color: #fff !important; box-shadow: 0px 0px 10px #0000001a; border-radius:0 0 32px 0;">
+      <div class="md:col-8 px-12 py-8 mx-auto" style="background-color: #fff !important; box-shadow: 0px 0px 10px #0000001a; border-radius:0 0 32px 0;">
 
         <form action="{{ site.Params.contact_form_action }}" method="POST">
 
           <div>
-            <input id="firstname" name="firstname" class="form-input" placeholder="First name*" type="text" />
+            <input id="firstname" name="firstname" class="form-input" placeholder="Voornaam*" type="text" />
           </div>
           <div>
-            <input id="lastname" name="lastname" class="form-input" placeholder="Last name*" type="text" />
+            <input id="lastname" name="lastname" class="form-input" placeholder="Achternaam*" type="text" />
           </div>
           <div>
             <input id="email" name="email" class="form-input" placeholder="Emailadres*" type="email" />
+          </div>
+          <div>
+            <input id="companyname" name="companyname" class="form-input" placeholder="Bedrijfsnaam*" type="text" />
+          </div>
+          <div>
+            <select id="interest" name="interest" class="form-input" style="color: rgb(52, 52, 52)">
+              <option value="" disabled selected>Waar wilt u meer over weten?</option>
+              <option value="qualified-signatures">Ik wil super graag gekwalificeerde handtekeningen kunnen zetten</option>
+              <option value="integration">Ik wil Vidua integreren in mijn eigen ondertekeningsplatform</option>
+              <option value="common-platform">Ik wil Vidua gebruiken in een bestaand ondertekeningsplatform</option>
+            </select>
           </div>
           <div class="mb-6">
             <textarea id="message" name="message" class="form-input" placeholder="Heeft u nog aanvullende informatie?" rows="8"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary mb-6">Submit</button>
+          <button type="submit" class="btn btn-primary mb-6">Verstuur</button>
 
           <div style="font-size: 0.75rem; color:grey;">Vidua gebruikt de contactgegevens die u aan ons verstrekt alleen om contact met u op te nemen over de informatie die u heeft aangevraagd. Voor meer informatie kunt u onze <a style="text-decoration: underline;" href=".">privacyverklaring</a> raadplegen.</div>
 
