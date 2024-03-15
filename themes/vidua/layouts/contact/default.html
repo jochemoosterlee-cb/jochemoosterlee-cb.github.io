@@ -36,23 +36,24 @@
         <form action="{{ site.Params.contact_form_action }}" method="POST">
 
           <div>
-            <input id="firstname" name="firstname" class="form-input" placeholder="Voornaam*" type="text" />
+            <input id="firstname" name="firstname" class="form-input" placeholder="Voornaam" type="text" />
           </div>
           <div>
-            <input id="lastname" name="lastname" class="form-input" placeholder="Achternaam*" type="text" />
+            <input id="lastname" name="lastname" class="form-input" placeholder="Achternaam" type="text" />
           </div>
           <div>
-            <input id="email" name="email" class="form-input" placeholder="Emailadres*" type="email" />
+            <input id="email" name="email" class="form-input" placeholder="Emailadres*" type="email" required />
           </div>
           <div>
-            <input id="companyname" name="companyname" class="form-input" placeholder="Bedrijfsnaam*" type="text" />
+            <input id="companyname" name="companyname" class="form-input" placeholder="Bedrijfsnaam" type="text" />
           </div>
           <div>
-            <select id="interest" name="interest" class="form-input" style="color: rgb(52, 52, 52)">
-              <option value="" disabled selected>Waar wilt u meer over weten?</option>
+            <select id="interest" name="interest" class="form-input" style="color: rgb(52, 52, 52)" required>
+              <option value="" disabled selected>Waar wilt u meer over weten?*</option>
               <option value="qualified-signatures">Ik wil super graag gekwalificeerde handtekeningen kunnen zetten</option>
               <option value="integration">Ik wil Vidua integreren in mijn eigen ondertekeningsplatform</option>
               <option value="common-platform">Ik wil Vidua gebruiken in een bestaand ondertekeningsplatform</option>
+              <option value="other">Anders...</option>
             </select>
           </div>
           <div class="mb-6">
