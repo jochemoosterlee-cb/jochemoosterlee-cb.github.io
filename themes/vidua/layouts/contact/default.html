@@ -1,48 +1,61 @@
 {{ define "main" }}
 
-  <section class="section-sm">
-    <div class="container">
-      <div class="row">
-        <div class="md:col-10 lg:col-6 mx-auto">
-          <form action="{{ site.Params.contact_form_action }}" method="POST">
-            <div class="mb-6">
-              <label for="name" class="form-label">
-                Naam <span class="text-red-500">*</span>
-              </label>
-              <input
-                id="name"
-                name="name"
-                class="form-input"
-                placeholder="John Doe"
-                type="text" />
-            </div>
-            <div class="mb-6">
-              <label for="email" class="form-label">
-                Emailadres <span class="text-red-500">*</span>
-              </label>
-              <input
-                id="email"
-                name="email"
-                class="form-input"
-                placeholder="john.doe@email.com"
-                type="email" />
-            </div>
-            <div class="mb-6">
-              <label for="message" class="form-label">
-                Opmerkingen? <span class="text-red-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                class="form-input"
-                placeholder="Tik hier uw bericht..."
-                rows="8"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="text-black md:col-6 px-8 py-8 flex flex-col justify-between" style="background-color: rgba(255, 151, 110, 0.1); border-radius:32px 0 0 0;">
+        <div>
+          <h2 class="text-black text-xl font-semibold font-primary sm:text-2xl">
+            Neem contact met ons op
+          </h2>
+          <p>
+            Bla bla bla bla
+          </p>
+        </div>
+        <div class="mb-8">
+          <div class="mb-8 separator"></div>
+          <div>
+            <p class="font-bold font-primary">
+              Algemene vragen
+            </p>
+            <p class="text-sm mb-4">
+              Mail ons op <a style="text-decoration: underline;" href="mailto:info@vidua.nl">info@vidua.nl</a> en we nemen zo snel mogelijk contact met u op
+            </p>
+            <p class="text-black font-bold font-primary">
+              Werken bij Vidua?
+            </p>
+            <p class="text-sm" >
+              Bekijk <a style="text-decoration: underline;" href=".">Werken bij</a> of stuur een email naar <a style="text-decoration: underline;" href="mailto:carreers@vidua.nl">carreers@vidua.nl</a>
+            </p>
+          </div>
         </div>
       </div>
+      <div class="md:col-6 px-12 py-8 mx-auto" style="background-color: #fff !important; box-shadow: 0px 0px 10px #0000001a; border-radius:0 0 32px 0;">
+
+        <form action="{{ site.Params.contact_form_action }}" method="POST">
+
+          <div>
+            <input id="firstname" name="firstname" class="form-input" placeholder="First name*" type="text" />
+          </div>
+          <div>
+            <input id="lastname" name="lastname" class="form-input" placeholder="Last name*" type="text" />
+          </div>
+          <div>
+            <input id="email" name="email" class="form-input" placeholder="Emailadres*" type="email" />
+          </div>
+          <div class="mb-6">
+            <textarea id="message" name="message" class="form-input" placeholder="Heeft u nog aanvullende informatie?" rows="8"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary mb-6">Submit</button>
+
+          <div style="font-size: 0.75rem; color:grey;">Vidua gebruikt de contactgegevens die u aan ons verstrekt alleen om contact met u op te nemen over de informatie die u heeft aangevraagd. Voor meer informatie kunt u onze <a style="text-decoration: underline;" href=".">privacyverklaring</a> raadplegen.</div>
+
+        </form>
+
+      </div>
     </div>
-  </section>  
+  </div>
+</section>
 
 {{ end }}
