@@ -107,6 +107,11 @@ name = "Werken bij"
 url = "/business/carreer"
 weight = 4
 
+[[business]]
+name = "Contact"
+url = "/business/contact"
+weight = 5
+
 # footer menu
 [[footer]]
 name = "Over"
