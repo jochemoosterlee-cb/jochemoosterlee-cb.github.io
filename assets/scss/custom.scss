@@ -472,3 +472,7 @@ select {
   background-color: #fff !important;
   box-shadow: 0px 0px 10px #0000001a; 
 }
+
+.form select {
+  text-overflow: ellipsis;
+}
