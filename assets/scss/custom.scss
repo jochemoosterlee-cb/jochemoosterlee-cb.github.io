@@ -473,6 +473,7 @@ select {
   box-shadow: 0px 0px 10px #0000001a;
   margin: auto;
   width: 88%;
+  height: 100%
 }
 
 .form select {
@@ -501,4 +502,11 @@ select {
   .form {
   width: 100%;
   }
+}
+
+.contact img {
+  max-height: 150px;
+  object-fit: cover;
+  margin-top: 1rem;
+  object-position: 50% 50%;
 }
