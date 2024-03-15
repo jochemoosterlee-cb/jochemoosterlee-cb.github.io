@@ -71,7 +71,7 @@
     {{ if or (strings.Contains $currentPage site.Params.choice_1_en) (strings.Contains $currentPage "Page(/_index.md)") }}
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden md:flex md:order-1 md:w-auto md:space-x-2 w-full pb-6 lg:pb-0 ">
+      class="navbar-nav order-3 hidden md:flex md:order-1 md:w-auto md:space-x-2 w-full pb-6 lg:pb-0">
       {{ $currentPage := . }}
       {{ range site.Menus.individual }}
         {{ $menuURL := .URL | absLangURL }}
@@ -82,7 +82,7 @@
         {{ if .HasChildren }}
           <li class="nav-item nav-dropdown group relative {{ if $active }}active {{- end -}}">
             <span
-              class="nav-link font-normal {{ range .Children }}
+              class="nav-link px-2 lg:px-3 font-normal {{ range .Children }}
                 {{ $childURL := .URL | absLangURL }}
                 {{ $active := strings.Contains $pageURL $childURL }}
                 {{ if $active }}active {{ end }}
@@ -123,7 +123,7 @@
         {{ else }}
           <li class="nav-item">
             <a
-              class="nav-link font-normal {{ if or ( eq $choiceHomeURL $menuURL ) $active }}active {{- end -}}"
+              class="nav-link px-2 lg:px-3 font-normal {{ if or ( eq $choiceHomeURL $menuURL ) $active }}active {{- end -}}"
               {{ if findRE `^http` .URL }}
                 target="_blank" rel="noopener"
               {{ end }}
@@ -146,7 +146,7 @@
   {{ else if strings.Contains $currentPage site.Params.choice_2_en}}
     <ul
       id="nav-menu"
-      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-2">
+      class="navbar-nav order-3 hidden md:flex md:order-1 md:w-auto md:space-x-2 w-full pb-6 lg:pb-0">
       {{ $currentPage := . }}
       {{ range site.Menus.business }}
         {{ $menuURL := .URL | absLangURL }}
@@ -156,7 +156,7 @@
         {{ if .HasChildren }}
           <li class="nav-item nav-dropdown group relative">
             <span
-              class="nav-link font-normal {{ range .Children }}
+              class="nav-link px-2 lg:px-3 font-normal {{ range .Children }}
                 {{ $childURL := .URL | absLangURL }}
                 {{ $active := strings.Contains $pageURL $childURL }}
                 {{ if $active }}active {{ end }}
@@ -197,7 +197,7 @@
         {{ else }}
           <li class="nav-item">
             <a
-              class="nav-link font-normal {{ if $active }}active {{- end -}}"
+              class="nav-link px-2 lg:px-3 font-normal {{ if $active }}active {{- end -}}"
               {{ if findRE `^http` .URL }}
                 target="_blank" rel="noopener"
               {{ end }}
