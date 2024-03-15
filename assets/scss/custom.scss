@@ -476,3 +476,15 @@ select {
 .form select {
   text-overflow: ellipsis;
 }
+
+.form textarea {
+  height: 6rem;
+}
+
+ .form [required]:invalid {
+  border: solid 2px rgba(255, 151, 110, 0.25);
+ }
+
+ .form-input:focus {
+  border: solid 2px rgb(255, 151, 110) !important;
+ }

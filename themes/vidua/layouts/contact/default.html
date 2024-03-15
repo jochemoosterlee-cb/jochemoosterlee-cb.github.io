@@ -30,30 +30,18 @@
         </div>
         <div class="form px-12 py-8 grid order-2 lg:order-3 lg:rounded-br-4xl" style="">
           <form action="{{ site.Params.contact_form_action }}" method="POST">
-            <div>
               <input id="firstname" name="firstname" class="form-input" placeholder="Voornaam" type="text" />
-            </div>
-            <div>
               <input id="lastname" name="lastname" class="form-input" placeholder="Achternaam" type="text" />
-            </div>
-            <div>
-              <input id="email" name="email" class="form-input" placeholder="Emailadres*" type="email" required />
-            </div>
-            <div>
+              <input id="email" name="email" class="form-input" placeholder="Emailadres" type="email" required />
               <input id="companyname" name="companyname" class="form-input" placeholder="Bedrijfsnaam" type="text" />
-            </div>
-            <div>
               <select id="interest" name="interest" class="form-input" style="color: rgb(52, 52, 52)" required>
-                <option value="" disabled selected>Waar wilt u meer over weten?*</option>
+                <option value="" disabled selected>Waar wilt u meer over weten?</option>
                 <option value="qualified-signatures">Ik wil super graag gekwalificeerde handtekeningen kunnen zetten</option>
                 <option value="integration">Ik wil Vidua integreren in mijn eigen ondertekeningsplatform</option>
                 <option value="common-platform">Ik wil Vidua gebruiken in een bestaand ondertekeningsplatform</option>
                 <option value="other">Anders...</option>
               </select>
-            </div>
-            <div class="mb-6">
               <textarea id="message" name="message" class="form-input" placeholder="Heeft u nog aanvullende informatie?" rows="8"></textarea>
-            </div>
             <button type="submit" class="btn btn-primary mb-6">Verstuur</button>
             <div style="font-size: 0.75rem; color:grey;">Vidua gebruikt de contactgegevens die u aan ons verstrekt alleen om contact met u op te nemen over de informatie die u heeft aangevraagd. Voor meer informatie kunt u onze <a style="text-decoration: underline;" href=".">privacyverklaring</a> raadplegen.</div>
           </form>
