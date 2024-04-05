@@ -1,7 +1,7 @@
 ---
 title: "Contact"
 meta_title: ""
-description: "this is meta description"
+description: "Contact form"
 draft: false
 type: "contact"
 layout: "default"
