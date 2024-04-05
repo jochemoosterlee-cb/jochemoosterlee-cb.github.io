@@ -30,3 +30,21 @@
 
 - id: empty_search_results_placeholder
   translation: Voer iets in om te zoeken..
+
+- id: first_name
+  translation: Voornaam
+
+- id: last_name
+  translation: Achternaam
+
+- id: email
+  translation: Emailadres
+
+- id: company_name
+  translation: Bedrijfsnaam
+
+- id: contact_question
+  translation: Hoe kunnen we u helpen?
+
+- id: send
+  translation: Verstuur

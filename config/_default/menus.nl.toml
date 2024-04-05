@@ -1,124 +1,124 @@
 ############# Dutch navigation ##############
 
 # main menu
-[[main]]
-name = "Particulier"
-url = "/individual"
-weight = 1
+# [[main]]
+# name = "Particulier"
+# url = "/individual"
+# weight = 1
 
-[[main]]
-name = "Zakelijk"
-url = "/business"
-weight = 2
+# [[main]]
+# name = "Zakelijk"
+# url = "/business"
+# weight = 2
 
 # individual menu
-[[individual]]
-name = "Home"
-url = "/individual"
-weight = 1
+# [[individual]]
+# name = "Home"
+# url = "/individual"
+# weight = 1
 
-[[individual]]
-name = "Aan de slag"
-url = "/individual/get-started"
-weight = 2
+# [[individual]]
+# name = "Aan de slag"
+# url = "/individual/get-started"
+# weight = 2
 
-  [[individual]]
-  name = "Aanmelden"
-  url = "/individual/get-started/sign-up"
-  weight = 1
-  parent = "Aan de slag"
+#   [[individual]]
+#   name = "Aanmelden"
+#   url = "/individual/get-started/sign-up"
+#   weight = 1
+#   parent = "Aan de slag"
 
-  [[individual]]
-  name = "Hoe te gebruiken"
-  url = "/individual/get-started/use"
-  weight = 2
-  parent = "Aan de slag"
+#   [[individual]]
+#   name = "Hoe te gebruiken"
+#   url = "/individual/get-started/use"
+#   weight = 2
+#   parent = "Aan de slag"
 
-[[individual]]
-name = "Waarom"
-url = "/individual/why"
-weight = 3
+# [[individual]]
+# name = "Waarom"
+# url = "/individual/why"
+# weight = 3
 
-  [[individual]]
-  name = "Veilig"
-  url = "/individual/why/secure"
-  weight = 1
-  parent = "Waarom"
+#   [[individual]]
+#   name = "Veilig"
+#   url = "/individual/why/secure"
+#   weight = 1
+#   parent = "Waarom"
 
-  [[individual]]
-  name = "Privacy"
-  url = "/individual/why/privacy"
-  weight = 2
-  parent = "Waarom"
+#   [[individual]]
+#   name = "Privacy"
+#   url = "/individual/why/privacy"
+#   weight = 2
+#   parent = "Waarom"
 
-[[individual]]
-name = "Hulp nodig?"
-url = "/individual/need-help "
-weight = 4
+# [[individual]]
+# name = "Hulp nodig?"
+# url = "/individual/need-help "
+# weight = 4
 
 # business menu
-[[business]]
-name = "Home"
-url = "/business"
-weight = 1
+# [[business]]
+# name = "Home"
+# url = "/business"
+# weight = 1
 
-[[business]]
-name = "Services"
-url = "/business/services"
-weight = 2
+# [[business]]
+# name = "Services"
+# url = "/business/services"
+# weight = 2
 
-  [[business]]
-  name = "Overzicht"
-  url = "/business/services/overview"
-  weight = 1
-  parent = "Services"
+#   [[business]]
+#   name = "Overzicht"
+#   url = "/business/services/overview"
+#   weight = 1
+#   parent = "Services"
 
-  [[business]]
-  name = "Veilig aanmelden"
-  url = "/business/services/safe-login"
-  weight = 2
-  parent = "Services"
+#   [[business]]
+#   name = "Veilig aanmelden"
+#   url = "/business/services/safe-login"
+#   weight = 2
+#   parent = "Services"
 
-  [[business]]
-  name = "Identificatie"
-  url = "/business/services/identification"
-  weight = 3
-  parent = "Services"
+#   [[business]]
+#   name = "Identificatie"
+#   url = "/business/services/identification"
+#   weight = 3
+#   parent = "Services"
 
-  [[business]]
-  name = "Gekwalificeerd ondertekenen"
-  url = "/business/services/qualified-signing"
-  weight = 4
-  parent = "Services"
+#   [[business]]
+#   name = "Gekwalificeerd ondertekenen"
+#   url = "/business/services/qualified-signing"
+#   weight = 4
+#   parent = "Services"
 
-  [[business]]
-  name = "Attributen delen"
-  url = "/business/services/sharing-attributes"
-  weight = 5
-  parent = "Services"
+#   [[business]]
+#   name = "Attributen delen"
+#   url = "/business/services/sharing-attributes"
+#   weight = 5
+#   parent = "Services"
 
-[[business]]
-name = "Developers"
-url = "/business/developers"
-weight = 3
+# [[business]]
+# name = "Developers"
+# url = "/business/developers"
+# weight = 3
 
-[[business]]
-name = "Werken bij"
-url = "/business/carreer"
-weight = 4
+# [[business]]
+# name = "Werken bij"
+# url = "/business/carreer"
+# weight = 4
 
-[[business]]
-name = "Contact"
-url = "/business/contact"
-weight = 5
+# [[business]]
+# name = "Contact"
+# url = "/business/contact"
+# weight = 5
 
 # footer menu
 [[footer]]
-name = "Over"
-url = "about"
+name = "Over Vidua"
+url = "https://vidua.nl/overvidua/"
 weight = 1
 
 [[footer]]
-name = "Privacy Policy"
-url = "privacy-policy"
+name = "Privacyverklaring"
+url = "https://cleverbase.com/wp-content/uploads/2024/02/privacy-statement-nl.pdf"
 weight = 2

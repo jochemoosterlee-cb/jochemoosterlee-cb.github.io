@@ -73,7 +73,8 @@ select {
 }
 
 .link,
-.accordion-content p > a {
+.accordion-content p > a,
+.contact a {
   color: rgb(0, 95, 156);
   text-decoration: underline;
 }
@@ -484,9 +485,9 @@ select {
   height: 6rem;
 }
 
- .form [required]:invalid {
-  border: solid 2px rgba(255, 151, 110, 0.25);
- }
+//  .form [required]:invalid {
+//   border: solid 2px rgba(255, 151, 110, 0.25);
+//  }
 
  .form-input:focus {
   border: solid 2px rgb(255, 151, 110) !important;

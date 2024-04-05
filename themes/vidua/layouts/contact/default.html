@@ -1,54 +1,52 @@
 {{ define "main" }}
-
+{{ with .Params }}
 <section class="section-sm">
   <div class="container">
     <div class="contact flex flex-col lg:grid lg:grid-flow-col" style="background-color: rgba(255, 151, 110, 0.25); border-radius:32px 0;">
         <div class="px-8 py-8 lg:order-1">
           <h2 class="text-black text-xl font-semibold font-primary sm:text-2xl mb-4">
-            Neem contact met ons op
+            {{ .formheader | markdownify }}
           </h2>
           <p>
-            Ons team staat klaar om u te helpen met al uw vragen. Vul gewoon het formulier in en we nemen snel contact met u op.
+            {{ .formtext | markdownify }}
           </p>
-          {{/*  {{ partial "image" (dict "Src" "images/helpdesk.png" "Alt" "helpdesk") }}  */}}
         </div>
         <div class="px-8 py-8 lg:self-end order-3 lg:order-2">
           <div class="separator mt-8 mb-8 hidden lg:block"></div>
           <div>
             <p class="font-bold font-primary">
-              Algemene vragen
+              {{ .questionsheader | markdownify }}
             </p>
             <p class="text-sm mb-4">
-              Mail ons op <a style="text-decoration: underline;" href="mailto:info@vidua.nl">info@vidua.nl</a> en we nemen zo snel mogelijk contact met u op
+              {{ .questionstext | markdownify }}
             </p>
-            <p class="text-black font-bold font-primary">
+            <p class="font-bold font-primary">
+              {{ .addressheader | markdownify }}
+            </p>
+            <p class="text-sm">
+              {{ .address | safeHTML }}
+            </p>
+            <!-- <p class="font-bold font-primary">
               Werken bij Vidua?
             </p>
             <p class="text-sm">
               Bekijk de <a style="text-decoration: underline;" href=".">werken bij</a> pagina of stuur een email naar <a style="text-decoration: underline;" href="mailto:carreers@vidua.nl">carreers@vidua.nl</a>
-            </p>
+            </p> -->
           </div>
         </div>
         <div class="form px-8 py-8 grid order-2 lg:order-3 lg:rounded-br-4xl">
           <form action="{{ site.Params.contact_form_action }}" method="POST">
-              <input id="firstname" name="firstname" class="form-input" placeholder="Voornaam" type="text" />
-              <input id="lastname" name="lastname" class="form-input" placeholder="Achternaam" type="text" />
-              <input id="email" name="email" class="form-input" placeholder="Emailadres" type="email" required />
-              <input id="companyname" name="companyname" class="form-input" placeholder="Bedrijfsnaam" type="text" />
-              <select id="interest" name="interest" class="form-input" style="color: rgb(52, 52, 52)" required>
-                <option value="" disabled selected>Waar wilt u meer over weten?</option>
-                <option value="qualified-signatures">Ik wil super graag gekwalificeerde handtekeningen kunnen zetten</option>
-                <option value="integration">Ik wil Vidua integreren in mijn eigen ondertekeningsplatform</option>
-                <option value="common-platform">Ik wil Vidua gebruiken in een bestaand ondertekeningsplatform</option>
-                <option value="other">Anders...</option>
-              </select>
-              <textarea id="message" name="message" class="form-input" placeholder="Heeft u nog aanvullende informatie?" rows="8"></textarea>
-            <button type="submit" class="btn btn-primary mb-6">Verstuur</button>
-            <div style="font-size: 0.75rem; color:grey;">Vidua gebruikt de contactgegevens die u aan ons verstrekt alleen om contact met u op te nemen over de informatie die u heeft aangevraagd. Voor meer informatie kunt u onze <a style="text-decoration: underline;" href=".">privacyverklaring</a> raadplegen.</div>
+              <input id="firstname" name="firstname" class="form-input" placeholder="{{ i18n `first_name` }}" type="text" required/>
+              <input id="lastname" name="lastname" class="form-input" placeholder="{{ i18n `last_name` }}" type="text" required/>
+              <input id="email" name="email" class="form-input" placeholder="{{ i18n `email` }}" type="email" required />
+              <input id="companyname" name="companyname" class="form-input" placeholder="{{ i18n `company_name` }}" type="text" required/>
+              <textarea id="message" name="message" class="form-input" placeholder="{{ i18n `contact_question` }}" rows="8" required></textarea>
+            <button type="submit" class="btn btn-primary mb-6">{{ i18n "send" }}</button>
+            <div style="font-size: 0.75rem; color:grey;">{{ .privacystatement | markdownify }}</div>
           </form>
         </div>
     </div>
   </div>
 </section>
-
+{{ end }}
 {{ end }}

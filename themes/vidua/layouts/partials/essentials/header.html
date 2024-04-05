@@ -2,18 +2,21 @@
 
 <header
   class="header {{ if site.Params.navbar_fixed }}sticky top-0{{ end }} z-30">
-  <div class = "mainbar container">
+  <div class = "mainbar container" style="padding-bottom: 0.5rem">
     <!-- logo -->
     <div class="logo-main-toggle">
       <div class="order-0">
         <!-- navbar brand/logo -->
-        <a class="navbar-brand block" href="{{ site.Home.RelPermalink }}">
+        <!-- <a class="navbar-brand block" href="{{ site.Home.RelPermalink }}">
+          {{ partial "logo" }}
+        </a> -->
+        <a class="navbar-brand block" href="https://vidua.nl">
           {{ partial "logo" }}
         </a>
       </div>
 
       <!-- main navbar -->
-      <ul
+      <!-- <ul
         id="nav-menu"
         class="navbar-nav order-3 lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-2">
         {{ range site.Menus.main }}
@@ -39,13 +42,14 @@
             >
           </li>
         {{ end }}
-      </ul>
+      </ul> -->
     </div>
 
     <!-- navbar toggler -->
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       for="nav-toggle"
+      style="padding-top:1rem"
       class="order-2 ml-auto cursor-pointer flex items-center md:hidden md:order-1 lg:hidden text-dark lg:order-1">
       <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -63,7 +67,7 @@
     </label>
     <!-- /navbar toggler -->
 
-    <div class="order-2 flex items-center md:order-2 lg:ml-0">
+    <div class="order-2 flex items-center md:order-2 lg:ml-0" style="padding-top:1rem">
       {{ partial "components/language-switcher" (dict "Context" . "Class" "mr-5 pl-2 py-1  rounded") }}
     </div>
 

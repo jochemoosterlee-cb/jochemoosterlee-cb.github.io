@@ -30,3 +30,22 @@
 
 - id: empty_search_results_placeholder
   translation: Type something to search..
+
+- id: first_name
+  translation: First name
+
+- id: last_name
+  translation: Surname
+
+- id: email
+  translation: Email
+
+- id: company_name
+  translation: Company name
+
+- id: contact_question
+  translation: How can we be of assistance?
+
+- id: send
+  translation: Send
+

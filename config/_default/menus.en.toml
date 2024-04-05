@@ -1,124 +1,124 @@
 ############# English navigation ##############
 
 # main menu
-[[main]]
-name = "Individual"
-url = "/individual"
-weight = 1
+# [[main]]
+# name = "Individual"
+# url = "/individual"
+# weight = 1
 
-[[main]]
-name = "Business"
-url = "/business"
-weight = 2
+# [[main]]
+# name = "Business"
+# url = "/business"
+# weight = 2
 
-# person menu
-[[individual]]
-name = "Home"
-url = "/individual"
-weight = 1
+# individual menu
+# [[individual]]
+# name = "Home"
+# url = "/individual"
+# weight = 1
 
-[[individual]]
-name = "Get started"
-url = "/individual/get-started"
-weight = 2
+# [[individual]]
+# name = "Get started"
+# url = "/individual/get-started"
+# weight = 2
 
-  [[individual]]
-  name = "Sign up"
-  url = "/individual/get-started/sign-up"
-  weight = 1
-  parent = "Get started"
+#   [[individual]]
+#   name = "Sign up"
+#   url = "/individual/get-started/sign-up"
+#   weight = 1
+#   parent = "Get started"
 
-  [[individual]]
-  name = "How to use"
-  url = "/individual/get-started/use"
-  weight = 2
-  parent = "Get started"
+#   [[individual]]
+#   name = "How to use"
+#   url = "/individual/get-started/use"
+#   weight = 2
+#   parent = "Get started"
 
-[[individual]]
-name = "Why"
-url = "/individual/why"
-weight = 3
+# [[individual]]
+# name = "Why"
+# url = "/individual/why"
+# weight = 3
 
-  [[individual]]
-  name = "Secure"
-  url = "/individual/why/secure"
-  weight = 1
-  parent = "Why"
+#   [[individual]]
+#   name = "Secure"
+#   url = "/individual/why/secure"
+#   weight = 1
+#   parent = "Why"
 
-  [[individual]]
-  name = "Privacy"
-  url = "/individual/why/privacy"
-  weight = 2
-  parent = "Why"
+#   [[individual]]
+#   name = "Privacy"
+#   url = "/individual/why/privacy"
+#   weight = 2
+#   parent = "Why"
 
-[[individual]]
-name = "Need help?"
-url = "/individual/need-help "
-weight = 4
+# [[individual]]
+# name = "Need help?"
+# url = "/individual/need-help "
+# weight = 4
 
 # business menu
-[[business]]
-name = "Home"
-url = "/business"
-weight = 1
+# [[business]]
+# name = "Home"
+# url = "/business"
+# weight = 1
 
-[[business]]
-name = "Services"
-url = "/business/services"
-weight = 2
+# [[business]]
+# name = "Services"
+# url = "/business/services"
+# weight = 2
 
-  [[business]]
-  name = "Overview"
-  url = "/business/services/overview"
-  weight = 1
-  parent = "Services"
+#   [[business]]
+#   name = "Overview"
+#   url = "/business/services/overview"
+#   weight = 1
+#   parent = "Services"
 
-  [[business]]
-  name = "Safe login"
-  url = "/business/services/safe-login"
-  weight = 2
-  parent = "Services"
+#   [[business]]
+#   name = "Safe login"
+#   url = "/business/services/safe-login"
+#   weight = 2
+#   parent = "Services"
 
-  [[business]]
-  name = "Identification"
-  url = "/business/services/identification"
-  weight = 3
-  parent = "Services"
+#   [[business]]
+#   name = "Identification"
+#   url = "/business/services/identification"
+#   weight = 3
+#   parent = "Services"
 
-  [[business]]
-  name = "Qualified signing"
-  url = "/business/services/qualified-signing"
-  weight = 4
-  parent = "Services"
+#   [[business]]
+#   name = "Qualified signing"
+#   url = "/business/services/qualified-signing"
+#   weight = 4
+#   parent = "Services"
 
-  [[business]]
-  name = "Sharing attributes"
-  url = "/business/services/sharing-attributes"
-  weight = 5
-  parent = "Services"
+#   [[business]]
+#   name = "Sharing attributes"
+#   url = "/business/services/sharing-attributes"
+#   weight = 5
+#   parent = "Services"
 
-[[business]]
-name = "Developers"
-url = "/business/developers"
-weight = 3
+# [[business]]
+# name = "Developers"
+# url = "/business/developers"
+# weight = 3
 
-[[business]]
-name = "Carreer"
-url = "/business/carreer"
-weight = 4
+# [[business]]
+# name = "Carreer"
+# url = "/business/carreer"
+# weight = 4
 
-[[business]]
-name = "Contact"
-url = "/business/contact"
-weight = 5
+# [[business]]
+# name = "Contact"
+# url = "/business/contact"
+# weight = 5
 
 # footer menu
 [[footer]]
-name = "About"
-url = "about/"
+name = "About Vidua"
+url = "https://vidua.nl/english/"
 weight = 1
 
 [[footer]]
-name = "Privacy Policy"
-url = "privacy-policy/"
+name = "Privacy Statement"
+url = "https://cleverbase.com/wp-content/uploads/2024/02/privacy-statement-en.pdf"
 weight = 2
